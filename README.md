@@ -1,6 +1,6 @@
 # prospect
 
-The webserver for my KAP at the Department of Dermatology at the Klinkum rechts der Isar
+The Code for my KAP at the Department of Dermatology at the Klinkum rechts der Isar
 
 ## Getting Started
 
