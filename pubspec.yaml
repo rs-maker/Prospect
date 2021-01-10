@@ -24,14 +24,24 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^1.0.1
+  cupertino_icons: ^1.0.2
+  rxdart:
+  flutter_bloc:
+
+  #injectable automatically sets up the getIt function if you annotate your injectable classes with @injectable
+  injectable:
+  #get it allows you to access objects from everywhere
+  get_it:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  #auto generators
+  build_runner:
+  injectable_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -43,6 +53,10 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+
+  #this allows you to use images in your code
+  assets:
+    - images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
