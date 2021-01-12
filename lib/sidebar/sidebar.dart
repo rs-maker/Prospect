@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
+import 'package:prospect/dropdown/custom_dropdown.dart';
+import 'package:prospect/dropdown/dropdown_item.dart';
 import 'package:prospect/sidebar/sidebar_item.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -11,6 +13,7 @@ class SideBar extends StatefulWidget {
 }
 
 class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
+  final GlobalKey<CustomDropDownState> _key = GlobalKey();
   AnimationController _animationController;
   StreamController<bool> isSideBarOpenedStreamController;
   Stream<bool> isSideBarOpenedStream;
@@ -67,34 +70,58 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 //TODO: CHECK IF THIS IS NEEDED
                 color: Color(0xFF262AAA),
-                child: Column(
-                  children: <Widget>[
-                    /* TODO: IMPLEMENT SIDEBAR ITEMS
-                  THIS IS WHERE THE SIDEBAR ITEMS GO*/
-                    SideBarItem(
-                      iconData: Icons.home,
-                      title: "Homepage",
-                      method: (){
-                        onIconPressed();
-                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvent.HomePageClickEvent);
-                      },
-                    ),
-                    SideBarItem(
-                      iconData: Icons.home_repair_service_rounded,
-                      title: "Second Page",
-                      method: (){
-                        onIconPressed();
-                        BlocProvider.of<NavigationBloc>(context).add(NavigationEvent.SecondPageClickEvent);
-                      },
-                    ),
-                  ],
-                ),
+                child: Column(children: <Widget>[
+                  /*                  THIS IS WHERE THE SIDEBAR ITEMS GO                                  */
+                  SideBarItem(
+                    iconData: Icons.home,
+                    title: "Homepage",
+                    method: () {
+                      navigateHomePage();
+                    },
+                  ),
+                  SideBarItem(
+                    iconData: Icons.home_repair_service_rounded,
+                    title: "Second Page",
+                    method: () {
+                      navigateSecondPage();
+                    },
+                  ),
+                  CustomDropDown(
+                    key: _key,
+                    // we need to initialise the DropDownItems here and pass them otherwise i dont know how to manage to pass the navigation functions
+                    items: [
+                      DropDownItem(
+                          text: "Home",
+                          icon: Icons.home,
+                          sideBarNavigation: navigateHomePage),
+                      DropDownItem(
+                        text: "Second",
+                        icon: Icons.security,
+                        sideBarNavigation: navigateSecondPage,
+                      ),
+                      DropDownItem(
+                        text: "Third",
+                        icon: Icons.security,
+                        sideBarNavigation: navigateThirdPage,
+                      ),
+                      DropDownItem(
+                        text: "Fourth",
+                        icon: Icons.security,
+                        sideBarNavigation: navigateFourthPage,
+                      ),
+                    ],
+                    string: "Roaccutane",
+                  ),
+                ]),
               ),
             ),
             Align(
               alignment: Alignment(0, -0.9),
               child: GestureDetector(
-                onTap: () => onIconPressed(),
+                onTap: () {
+                  _key.currentState.onButtonPressed();
+                  onIconPressed();
+                },
                 child: ClipPath(
                   clipper: CustomMenuClipper(),
                   child: Container(
@@ -116,6 +143,30 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
         ),
       ),
     );
+  }
+
+  void navigateHomePage() {
+    onIconPressed();
+    BlocProvider.of<NavigationBloc>(context)
+        .add(NavigationEvent.HomePageClickEvent);
+  }
+
+  void navigateSecondPage() {
+    onIconPressed();
+    BlocProvider.of<NavigationBloc>(context)
+        .add(NavigationEvent.SecondPageClickEvent);
+  }
+
+  void navigateThirdPage() {
+    onIconPressed();
+    BlocProvider.of<NavigationBloc>(context)
+        .add(NavigationEvent.ThirdPageClickEvent);
+  }
+
+  void navigateFourthPage() {
+    onIconPressed();
+    BlocProvider.of<NavigationBloc>(context)
+        .add(NavigationEvent.FourthPageClickEvent);
   }
 }
 
