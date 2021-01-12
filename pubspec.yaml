@@ -30,18 +30,12 @@ dependencies:
   rxdart:
   flutter_bloc:
 
-  #injectable automatically sets up the getIt function if you annotate your injectable classes with @injectable
-  injectable:
-  #get it allows you to access objects from everywhere
-  get_it:
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   #auto generators
   build_runner:
-  injectable_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
