@@ -52,6 +52,7 @@ class CustomDropDownState extends State<CustomDropDown> {
             ));
   }
   void printTest(){print("WORKS");}
+
   void onButtonPressed() {
     setState(() {
       if (isDropDownOpened) {
@@ -74,14 +75,14 @@ class CustomDropDownState extends State<CustomDropDown> {
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          color: Colors.blue,
+          color: Theme.of(context).secondaryHeaderColor,
         ),
         child: Row(
           children: [
             Text(
               widget.string.toUpperCase(),
               style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).indicatorColor,
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
               ),
@@ -89,7 +90,7 @@ class CustomDropDownState extends State<CustomDropDown> {
             Spacer(),
             Icon(
               Icons.arrow_drop_down,
-              color: Colors.white,
+              color: Theme.of(context).indicatorColor,
             ),
           ],
         ),

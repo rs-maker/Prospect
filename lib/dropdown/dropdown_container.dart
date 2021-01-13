@@ -33,7 +33,7 @@ class DropDownContainer extends StatelessWidget {
               height: 10,
               width: 30,
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Theme.of(context).secondaryHeaderColor,
               ),
             ),
           ),
@@ -42,7 +42,7 @@ class DropDownContainer extends StatelessWidget {
           child: Container(
             height: items.length * itemHeight,
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Theme.of(context).secondaryHeaderColor,
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(

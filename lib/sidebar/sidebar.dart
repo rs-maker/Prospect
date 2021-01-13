@@ -69,45 +69,40 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 //TODO: CHECK IF THIS IS NEEDED
-                color: Color(0xFF262AAA),
+                color: Theme.of(context).primaryColor,
                 child: Column(children: <Widget>[
                   /*                  THIS IS WHERE THE SIDEBAR ITEMS GO                                  */
                   SideBarItem(
                     iconData: Icons.home,
                     title: "Homepage",
                     method: () {
-                      navigateHomePage();
-                    },
-                  ),
-                  SideBarItem(
-                    iconData: Icons.home_repair_service_rounded,
-                    title: "Second Page",
-                    method: () {
-                      navigateSecondPage();
+                      _key.currentState.onButtonPressed();
+                      navigatePage("Home");
                     },
                   ),
                   CustomDropDown(
                     key: _key,
-                    // we need to initialise the DropDownItems here and pass them otherwise i dont know how to manage to pass the navigation functions
+                    //this gloabal Key allows us to close the drop down when a button in the sidebar is pressed -> eventually it would be cool if the drop down could stay open and stick with the sidebar
+                    // we need to initialise the DropDownItems here and pass the navigation function hereotherwise i dont know how to manage to pass those along
                     items: [
                       DropDownItem(
-                          text: "Home",
+                          text: "First",
                           icon: Icons.home,
-                          sideBarNavigation: navigateHomePage),
+                          sideBarNavigation: navigatePage),
                       DropDownItem(
                         text: "Second",
                         icon: Icons.security,
-                        sideBarNavigation: navigateSecondPage,
+                        sideBarNavigation: navigatePage,
                       ),
                       DropDownItem(
                         text: "Third",
                         icon: Icons.security,
-                        sideBarNavigation: navigateThirdPage,
+                        sideBarNavigation: navigatePage,
                       ),
                       DropDownItem(
                         text: "Fourth",
                         icon: Icons.security,
-                        sideBarNavigation: navigateFourthPage,
+                        sideBarNavigation: navigatePage,
                       ),
                     ],
                     string: "Roaccutane",
@@ -127,12 +122,12 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                   child: Container(
                     width: 35,
                     height: 110,
-                    color: Color(0xFF262AAA),
+                    color: Theme.of(context).primaryColor,
                     alignment: Alignment.centerLeft,
                     child: AnimatedIcon(
                       progress: _animationController.view,
                       icon: AnimatedIcons.menu_close,
-                      color: Color(0xFF1BB5FD),
+                      color: Theme.of(context).secondaryHeaderColor,
                       size: 25,
                     ),
                   ),
@@ -145,28 +140,34 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
     );
   }
 
-  void navigateHomePage() {
-    onIconPressed();
-    BlocProvider.of<NavigationBloc>(context)
-        .add(NavigationEvent.HomePageClickEvent);
-  }
-
-  void navigateSecondPage() {
-    onIconPressed();
-    BlocProvider.of<NavigationBloc>(context)
-        .add(NavigationEvent.SecondPageClickEvent);
-  }
-
-  void navigateThirdPage() {
-    onIconPressed();
-    BlocProvider.of<NavigationBloc>(context)
-        .add(NavigationEvent.ThirdPageClickEvent);
-  }
-
-  void navigateFourthPage() {
-    onIconPressed();
-    BlocProvider.of<NavigationBloc>(context)
-        .add(NavigationEvent.FourthPageClickEvent);
+  void navigatePage(String name) {
+    switch (name) {
+      case "Home":
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.HomePageClickEvent);
+        break;
+      case "First":
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.FirstPageClickEvent);
+        break;
+      case "Second":
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.SecondPageClickEvent);
+        break;
+      case "Third":
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.ThirdPageClickEvent);
+        break;
+      case "Fourth":
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.FourthPageClickEvent);
+        break;
+    }
   }
 }
 

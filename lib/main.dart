@@ -11,13 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
 
-      //TODO: set up theme to actually be used right now it just... exists
       theme: ThemeData(
-        backgroundColor: Colors.white,
-        scaffoldBackgroundColor: Colors.white,
-        primaryColor: Colors.white,
-        accentColor: Colors.blue,
-        buttonColor: Colors.lightBlue,
+        backgroundColor: Colors.white,                            /*This is the color for any kind of text Background*/
+        scaffoldBackgroundColor: Colors.white,                    /* Reserving this field for the eventual checklist background*/
+        primaryColor: Color(0xFF262AAA),                              /* Primary color tobe used for SideBar and other big fields */
+        secondaryHeaderColor: Color(0xFF1BB5FD),                         /* use this for buttons and Icons */
+        indicatorColor: Colors.white,                             /* Text on anything but white background and little indicators that need to stand out */
       ),
       home: SideBarLayout(),
     );
