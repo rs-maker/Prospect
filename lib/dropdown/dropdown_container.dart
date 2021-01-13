@@ -39,6 +39,7 @@ class DropDownContainer extends StatelessWidget {
           ),
         ),
         Material(
+          color: Colors.transparent,
           child: Container(
             height: items.length * itemHeight,
             decoration: BoxDecoration(

@@ -1,14 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
+import 'package:prospect/pages/layouts/TextBlockLayout.dart';
+import 'layouts/texpage_layout.dart';
 
-class HomePage extends StatelessWidget with NavigationStates {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child:  Padding(
-        padding: const EdgeInsets.only(top: 48.0,left: 32.0,right: 32.0),
-        child: Text("HomePage",style: TextStyle(fontWeight: FontWeight.w600,fontSize: 28),),
-      )
-    );
-  }
+class HomePage extends TextPage with NavigationStates {
+  final TextBlock textBlock0 = TextBlock(title: "TEST", content: "TEST", first: false,);
+  final TextBlock textBlock1 = TextBlock(title: "TEST", content: "TEST", first: false,);
 }

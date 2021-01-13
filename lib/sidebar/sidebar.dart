@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
@@ -53,7 +54,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-
+    print("THIS IS MY SCREENWIDTH   "+screenWidth.toString());
     return StreamBuilder<bool>(
       initialData: false,
       stream: isSideBarOpenedStream,
@@ -62,7 +63,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
         top: 0,
         bottom: 0,
         left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
-        right: isSideBarOpenedAsync.data ? 0 : screenWidth - 45,
+        right: isSideBarOpenedAsync.data ? (screenWidth > 500 ? screenWidth - 350 : 0) : screenWidth - 30,
         child: Row(
           children: <Widget>[
             Expanded(
@@ -72,6 +73,14 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                 color: Theme.of(context).primaryColor,
                 child: Column(children: <Widget>[
                   /*                  THIS IS WHERE THE SIDEBAR ITEMS GO                                  */
+                  Padding(padding: const EdgeInsets.only(top: 60)),
+                  Image.asset(
+                    'images/tum.png',
+                    width: 200,
+                    height: 100,
+                    fit: BoxFit.cover,
+                  ),
+                  Padding(padding: const EdgeInsets.only(top: 40)),
                   SideBarItem(
                     iconData: Icons.home,
                     title: "Homepage",
