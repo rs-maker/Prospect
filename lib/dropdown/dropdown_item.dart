@@ -27,7 +27,7 @@ class DropDownItem extends StatelessWidget {
         borderRadius: BorderRadius.vertical(
             top: isFirstItem ? Radius.circular(8) : Radius.zero,
             bottom: isLastItem ? Radius.circular(8) : Radius.zero),
-        color: Colors.blue,
+        color: Theme.of(context).secondaryHeaderColor,
       ),
       child: GestureDetector(
         child: Row(
@@ -35,7 +35,7 @@ class DropDownItem extends StatelessWidget {
             Text(
               text.toUpperCase(),
               style: TextStyle(
-                color: Colors.white,
+                color: Theme.of(context).indicatorColor,
                 fontSize: 22,
                 fontWeight: FontWeight.w600,
               ),
@@ -44,18 +44,18 @@ class DropDownItem extends StatelessWidget {
             RaisedButton(
               onPressed: (){
                 parent.onButtonPressed();
-                sideBarNavigation();
+                sideBarNavigation(text);
               },
               child: Icon(
                 icon,
-                color: Colors.white,
+                color: Theme.of(context).secondaryHeaderColor,
               ),
             ),
           ],
         ),
         onTap: () {
           parent.onButtonPressed();
-          sideBarNavigation();
+          sideBarNavigation(text);
         },
       ),
     );

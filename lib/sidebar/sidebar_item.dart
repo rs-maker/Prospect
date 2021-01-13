@@ -17,7 +17,7 @@ class SideBarItem extends StatelessWidget {
           children: <Widget>[
             Icon(
               iconData,
-              color: Colors.cyanAccent,
+              color: Theme.of(context).secondaryHeaderColor,
               size: 30,
             ),
             SizedBox(
