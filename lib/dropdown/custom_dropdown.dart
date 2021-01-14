@@ -43,7 +43,7 @@ class CustomDropDownState extends State<CustomDropDown> {
               left: xPosition,
               width: width,
               top: yPosition + height,
-              height: 4 * height + 40,
+              height: widget.items.length * height + 40,   //TODO: '45' is a magic number which should be avoided but right now it is what works
               child: DropDownContainer(
                 parent: this,
                 items: widget.items,

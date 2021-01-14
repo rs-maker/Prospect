@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 
 class BulletList extends StatelessWidget {
   final List<String> strings;
+  final String title;
 
-  const BulletList({Key key, this.strings}) : super(key: key);
+  const BulletList({Key key, this.strings, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final List<ListTile> tiles = createTiles(strings, context);
+    title != null ? tiles.insert(0, ListTile(title: Text(title, style: TextStyle(color: Theme.of(context).dividerColor,fontSize: 24, fontWeight: FontWeight.w600),),)) : doNothing();
     return Column(
       children: tiles,
     );
   }
+  void doNothing(){}
 
   List<ListTile> createTiles(List<String> strings, context) {
     List<ListTile> container = [];

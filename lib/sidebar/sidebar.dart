@@ -54,7 +54,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    print("THIS IS MY SCREENWIDTH   "+screenWidth.toString());
+    print("THIS IS MY SCREENWIDTH   " + screenWidth.toString());
     return StreamBuilder<bool>(
       initialData: false,
       stream: isSideBarOpenedStream,
@@ -63,7 +63,9 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
         top: 0,
         bottom: 0,
         left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
-        right: isSideBarOpenedAsync.data ? (screenWidth > 500 ? screenWidth - 350 : 0) : screenWidth - 30,
+        right: isSideBarOpenedAsync.data
+            ? (screenWidth > 500 ? screenWidth - 350 : 0)
+            : screenWidth - 30,
         child: Row(
           children: <Widget>[
             Expanded(
@@ -112,6 +114,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                       DropDownItem(
                         text: "Fourth",
                         icon: Icons.security,
+                        sideBarNavigation: navigatePage,
+                      ),
+                      DropDownItem(
+                        text: "Fifth",
+                        icon: Icons.accessible_forward_rounded,
                         sideBarNavigation: navigatePage,
                       ),
                     ],
@@ -179,6 +186,15 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
         BlocProvider.of<NavigationBloc>(context)
             .add(NavigationEvent.FourthPageClickEvent);
         break;
+      case "Fifth":
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.FifthPageClickEvent);
+        break;
+      default:
+        onIconPressed();
+        BlocProvider.of<NavigationBloc>(context)
+            .add(NavigationEvent.HomePageClickEvent);
     }
   }
 }

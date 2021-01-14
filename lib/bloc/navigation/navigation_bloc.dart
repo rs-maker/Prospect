@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prospect/pages/fifth_page.dart';
 import 'package:prospect/pages/first_page.dart';
 import 'package:prospect/pages/fourth_page.dart';
 import 'package:prospect/pages/homepage.dart';
@@ -11,6 +12,7 @@ enum NavigationEvent {
   SecondPageClickEvent,
   ThirdPageClickEvent,
   FourthPageClickEvent,
+  FifthPageClickEvent,
 }
 
 abstract class NavigationStates {}
@@ -36,7 +38,9 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
       case NavigationEvent.FourthPageClickEvent:
         yield FourthPage();
         break;
-
+      case NavigationEvent.FifthPageClickEvent:
+        yield FifthPage();
+        break;
     }
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
 import 'layouts/textblock_layout.dart';
-import 'layouts/texpage_layout.dart';
+import 'layouts/textpage_layout.dart';
 
 class FirstPage extends TextPage with NavigationStates {
   final List<Widget> children = [

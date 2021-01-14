@@ -16,10 +16,6 @@ class DropDownContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DropDownItem item0 = items[0];
-    DropDownItem item1 = items[1];
-    DropDownItem item2 = items[2];
-    DropDownItem item3 = items[3];
     return Column(
       children: <Widget>[
         SizedBox(
@@ -47,45 +43,33 @@ class DropDownContainer extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             child: Column(
-              children: <Widget>[
-                // THIS IS WHERE THE DROP DOWN ITEMS GO
-                //Here i am trying to use callbacks
-                Expanded(
-                    child: DropDownItem(
-                  text: item0.text,
-                  icon: item0.icon,
-                  isFirstItem: true,
-                  sideBarNavigation: item0.sideBarNavigation,
-                  parent: parent,
-                )),
-                Expanded(
-                    child: DropDownItem(
-                  text: item1.text,
-                  icon: item1.icon,
-                  sideBarNavigation: item1.sideBarNavigation,
-                  parent: parent,
-                )),
-                Expanded(
-                    child: DropDownItem(
-                  text: item2.text,
-                  icon: item2.icon,
-                  sideBarNavigation: item2.sideBarNavigation,
-                  parent: parent,
-                )),
-                Expanded(
-                    child: DropDownItem(
-                  text: item3.text,
-                  icon: item3.icon,
-                  isLastItem: true,
-                  sideBarNavigation: item3.sideBarNavigation,
-                  parent: parent,
-                )),
-              ],
+              children: wrapChildren(items),
             ),
           ),
         ),
       ],
     );
+  }
+  // the items need a reference to the customdropdown (parent) in order to close the box when the user clicks a link thats why we have to wrap it here also to set the IsFirst and IsLast params
+  //and to wrap everything in an expanded widget
+  // TODO: the wrapping could be made more efficient if we created an overloaded constructor DropDownItem(DropDownItem item, parent) in DropDownItem class but that is just sugar
+  List<Widget> wrapChildren(List<DropDownItem> items){
+    List<Widget> container = [];
+    int index = 0;
+    for(DropDownItem item in items){
+      container.add(Expanded(
+        child: DropDownItem(
+          text: item.text,
+          icon: item.icon,
+          isFirstItem: index == 0? true : false,
+          isLastItem: index  == items.length -1 ? true : false,
+          sideBarNavigation: item.sideBarNavigation,
+          parent: parent,
+        ),
+      ));
+      index++;
+    }
+    return container;
   }
 }
 
