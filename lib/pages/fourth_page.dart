@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
 import 'package:prospect/pages/layouts/textpage_layout.dart';
+import 'layouts/navbar_layout.dart';
 import 'layouts/textblock_layout.dart';
 
 class FourthPage extends TextPage with NavigationStates {
@@ -113,5 +114,6 @@ class FourthPage extends TextPage with NavigationStates {
           "in dieser Broschüre erwähnt sind oder nicht.",
       first: false,
     ),
+    NavBar(back: NavigationEvent.ThirdPageClickEvent, forward: NavigationEvent.FifthPageClickEvent,),
   ];
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prospect/dropdown/dropdown_container.dart';
 import 'dropdown_item.dart';
-
 class CustomDropDown extends StatefulWidget {
   final String string;
   final List<DropDownItem> items;
@@ -43,7 +42,7 @@ class CustomDropDownState extends State<CustomDropDown> {
               left: xPosition,
               width: width,
               top: yPosition + height,
-              height: widget.items.length * height + 40,   //TODO: '45' is a magic number which should be avoided but right now it is what works
+              height: widget.items.length * height + 40,   //TODO: '40' is a magic number which should be avoided but right now it is what works
               child: DropDownContainer(
                 parent: this,
                 items: widget.items,

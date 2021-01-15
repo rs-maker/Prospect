@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
+import 'layouts/navbar_layout.dart';
 import 'layouts/textblock_layout.dart';
 import 'layouts/textpage_layout.dart';
 
-class FirstPage extends TextPage with NavigationStates {
+class IntroPage extends TextPage with NavigationStates {
   final List<Widget> children = [
     TextBlock(
       title: "Weshalb wurde mir Roaccutane verschrieben?",
@@ -47,5 +48,6 @@ class FirstPage extends TextPage with NavigationStates {
           "Müdigkeit und die Anwendung bestimmter ungeeigneter Kosmetika. ",
       first: false,
     ),
+    NavBar(back: NavigationEvent.HomePageClickEvent, forward: NavigationEvent.SecondPageClickEvent),
   ];
 }

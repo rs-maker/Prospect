@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:prospect/bloc/navigation/navigation_bloc.dart';
 import 'package:prospect/dropdown/custom_dropdown.dart';
 
 class DropDownItem extends StatelessWidget {
+  final NavigationEvent navigationEvent;
   final String text;
   final IconData icon;
   final bool isFirstItem;
   final bool isLastItem;
-  final Function sideBarNavigation;
+  final Function pageNavigation;
   final CustomDropDownState parent;
 
   DropDownItem({
@@ -15,8 +17,8 @@ class DropDownItem extends StatelessWidget {
     this.icon,
     this.isFirstItem = false,
     this.isLastItem = false,
-    this.sideBarNavigation,
-    this.parent,
+    this.pageNavigation,
+    this.parent, this.navigationEvent,
   }) : super(key: key);
 
   @override
@@ -42,9 +44,10 @@ class DropDownItem extends StatelessWidget {
             ),
             Spacer(),
             RaisedButton(
-              onPressed: (){
+              onPressed: () {
                 parent.onButtonPressed();
-                sideBarNavigation(text);
+                print(navigationEvent.toString());
+                pageNavigation(navigationEvent);
               },
               child: Icon(
                 icon,
@@ -55,7 +58,8 @@ class DropDownItem extends StatelessWidget {
         ),
         onTap: () {
           parent.onButtonPressed();
-          sideBarNavigation(text);
+
+          pageNavigation(text);
         },
       ),
     );

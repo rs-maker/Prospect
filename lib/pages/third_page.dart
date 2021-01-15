@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
 import 'package:prospect/pages/layouts/textpage_layout.dart';
+import 'layouts/navbar_layout.dart';
 import 'layouts/textblock_layout.dart';
 
 class ThirdPage extends TextPage with NavigationStates {
@@ -79,5 +80,7 @@ class ThirdPage extends TextPage with NavigationStates {
           "absetzen und den Arzt aufsuchen.",
       first: false,
     ),
+    NavBar(back: NavigationEvent.SecondPageClickEvent, forward: NavigationEvent.FourthPageClickEvent,),
+
   ];
 }

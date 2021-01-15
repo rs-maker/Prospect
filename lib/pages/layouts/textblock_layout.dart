@@ -34,7 +34,8 @@ class TextBlock extends StatelessWidget {
           ),
           title == ""
               ? Container()
-              : Padding(padding: const EdgeInsets.only(bottom: 20)),
+              : Padding(padding: const EdgeInsets.only(bottom: 10)),
+          content == "" ? Container() :
           Text(
             content,
             textAlign: TextAlign.left,

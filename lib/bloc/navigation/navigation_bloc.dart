@@ -4,6 +4,7 @@ import 'package:prospect/pages/first_page.dart';
 import 'package:prospect/pages/fourth_page.dart';
 import 'package:prospect/pages/homepage.dart';
 import 'package:prospect/pages/second_page.dart';
+import 'package:prospect/pages/sixth_page.dart';
 import 'package:prospect/pages/third_page.dart';
 
 enum NavigationEvent {
@@ -13,6 +14,7 @@ enum NavigationEvent {
   ThirdPageClickEvent,
   FourthPageClickEvent,
   FifthPageClickEvent,
+  SixthPageClickEvent,
 }
 
 abstract class NavigationStates {}
@@ -27,7 +29,7 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
         yield HomePage();
         break;
       case NavigationEvent.FirstPageClickEvent:
-        yield FirstPage();
+        yield IntroPage();
         break;
       case NavigationEvent.SecondPageClickEvent:
         yield SecondPage();
@@ -40,6 +42,9 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
         break;
       case NavigationEvent.FifthPageClickEvent:
         yield FifthPage();
+        break;
+      case NavigationEvent.SixthPageClickEvent:
+        yield SixthPage();
         break;
     }
   }

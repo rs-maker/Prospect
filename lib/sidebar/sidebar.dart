@@ -71,7 +71,6 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
             Expanded(
               child: Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
-                //TODO: CHECK IF THIS IS NEEDED
                 color: Theme.of(context).primaryColor,
                 child: Column(children: <Widget>[
                   /*                  THIS IS WHERE THE SIDEBAR ITEMS GO                                  */
@@ -89,38 +88,51 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                     method: () {
                       if (_key.currentState.isDropDownOpened)
                         _key.currentState.onButtonPressed();
-                      navigatePage("Home");
+                      navigatePage(NavigationEvent.HomePageClickEvent);
                     },
                   ),
                   CustomDropDown(
                     key: _key,
-                    //this gloabal Key allows us to close the drop down when a button in the sidebar is pressed -> eventually it would be cool if the drop down could stay open and stick with the sidebar
-                    // we need to initialise the DropDownItems here and pass the navigation function hereotherwise i dont know how to manage to pass those along
+                    //this global Key allows us to close the drop down when a button in the sidebar is pressed -> eventually it would be cool if the drop down could stay open and stick with the sidebar
+                    // TODO: this should not happen in this class. we should pass CustomDropDown a reference to Sidebar and create a navigation function inside the DropDownItem class
+                    // ^ turns out this is a lot more complicated than it seems at first glance
                     items: [
+                      //when creating DropDownItems here be aware that they are changed in dropdown_container class before being displayed
                       DropDownItem(
-                          text: "First",
-                          icon: Icons.home,
-                          sideBarNavigation: navigatePage),
+                        text: "Intro",
+                        icon: Icons.security,
+                        pageNavigation: navigatePage,
+                        navigationEvent: NavigationEvent.FirstPageClickEvent,
+                      ),
                       DropDownItem(
                         text: "Second",
                         icon: Icons.security,
-                        sideBarNavigation: navigatePage,
+                        pageNavigation: navigatePage,
+                        navigationEvent: NavigationEvent.SecondPageClickEvent,
                       ),
                       DropDownItem(
                         text: "Third",
                         icon: Icons.security,
-                        sideBarNavigation: navigatePage,
+                        pageNavigation: navigatePage,
+                        navigationEvent: NavigationEvent.ThirdPageClickEvent,
                       ),
                       DropDownItem(
                         text: "Fourth",
                         icon: Icons.security,
-                        sideBarNavigation: navigatePage,
+                        pageNavigation: navigatePage,
+                        navigationEvent: NavigationEvent.FourthPageClickEvent,
                       ),
                       DropDownItem(
-                        text: "Fifth",
-                        icon: Icons.accessible_forward_rounded,
-                        sideBarNavigation: navigatePage,
-                      ),
+                          text: "Fifth",
+                          icon: Icons.accessible_forward_rounded,
+                          pageNavigation: navigatePage,
+                          navigationEvent: NavigationEvent.FifthPageClickEvent),
+                      DropDownItem(
+                        text: "Sixth",
+                        icon: Icons.accessibility_rounded,
+                        pageNavigation: navigatePage,
+                        navigationEvent: NavigationEvent.SixthPageClickEvent,
+                      )
                     ],
                     string: "Roaccutane",
                   ),
@@ -159,43 +171,11 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
     );
   }
 
-  void navigatePage(String name) {
-    switch (name) {
-      case "Home":
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.HomePageClickEvent);
-        break;
-      case "First":
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.FirstPageClickEvent);
-        break;
-      case "Second":
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.SecondPageClickEvent);
-        break;
-      case "Third":
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.ThirdPageClickEvent);
-        break;
-      case "Fourth":
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.FourthPageClickEvent);
-        break;
-      case "Fifth":
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.FifthPageClickEvent);
-        break;
-      default:
-        onIconPressed();
-        BlocProvider.of<NavigationBloc>(context)
-            .add(NavigationEvent.HomePageClickEvent);
-    }
+  // on IconPressed() -> opens/closes the sidebar and the second line navigates to whatever page you want it to navigate to
+  //i pass this to pretty much every button that does those things
+  void navigatePage(NavigationEvent event) {
+    onIconPressed();
+    BlocProvider.of<NavigationBloc>(context).add(event);
   }
 }
 

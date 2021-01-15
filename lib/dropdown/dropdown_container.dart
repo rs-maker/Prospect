@@ -52,18 +52,18 @@ class DropDownContainer extends StatelessWidget {
   }
   // the items need a reference to the customdropdown (parent) in order to close the box when the user clicks a link thats why we have to wrap it here also to set the IsFirst and IsLast params
   //and to wrap everything in an expanded widget
-  // TODO: the wrapping could be made more efficient if we created an overloaded constructor DropDownItem(DropDownItem item, parent) in DropDownItem class but that is just sugar
   List<Widget> wrapChildren(List<DropDownItem> items){
     List<Widget> container = [];
     int index = 0;
     for(DropDownItem item in items){
       container.add(Expanded(
         child: DropDownItem(
+          navigationEvent: item.navigationEvent,
           text: item.text,
           icon: item.icon,
           isFirstItem: index == 0? true : false,
           isLastItem: index  == items.length -1 ? true : false,
-          sideBarNavigation: item.sideBarNavigation,
+          pageNavigation: item.pageNavigation,
           parent: parent,
         ),
       ));

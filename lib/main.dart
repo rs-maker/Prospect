@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
         secondaryHeaderColor: Color(0xFF1BB5FD),                         /* use this for buttons and Icons : CUSTOM COLOR MY GIRLFRIEND REALLY LIKES ¯\_(ツ)_/¯*/
         indicatorColor: Colors.white,                             /* Text on anything but white background and little indicators that need to stand out */
         dividerColor: Color(0xFF545B62),
+        disabledColor: Colors.grey,
       ),
         /* THESE ARE THE OFFICIAL TUM COLORS:
         (We are using some of them but not all)
