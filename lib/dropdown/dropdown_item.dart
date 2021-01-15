@@ -38,7 +38,7 @@ class DropDownItem extends StatelessWidget {
               text.toUpperCase(),
               style: TextStyle(
                 color: Theme.of(context).indicatorColor,
-                fontSize: 22,
+                fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),
             ),

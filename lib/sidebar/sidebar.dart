@@ -64,7 +64,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
         bottom: 0,
         left: isSideBarOpenedAsync.data ? 0 : -screenWidth,
         right: isSideBarOpenedAsync.data
-            ? (screenWidth > 500 ? screenWidth - 350 : 0)
+            ? (screenWidth > 500 ? screenWidth - 450 : 0)
             : screenWidth - 30,
         child: Row(
           children: <Widget>[
@@ -100,36 +100,36 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                       //when creating DropDownItems here be aware that they are changed in dropdown_container class before being displayed
                       DropDownItem(
                         text: "Intro",
-                        icon: Icons.security,
+                        icon: Icons.receipt_long,
                         pageNavigation: navigatePage,
                         navigationEvent: NavigationEvent.FirstPageClickEvent,
                       ),
                       DropDownItem(
-                        text: "Second",
-                        icon: Icons.security,
+                        text: "Risiken",
+                        icon: Icons.receipt_long,
                         pageNavigation: navigatePage,
                         navigationEvent: NavigationEvent.SecondPageClickEvent,
                       ),
                       DropDownItem(
-                        text: "Third",
-                        icon: Icons.security,
+                        text: "Nebenwirkungen I",
+                        icon: Icons.receipt_long,
                         pageNavigation: navigatePage,
                         navigationEvent: NavigationEvent.ThirdPageClickEvent,
                       ),
                       DropDownItem(
-                        text: "Fourth",
-                        icon: Icons.security,
+                        text: "Nebenwirkungen II",
+                        icon: Icons.receipt_long,
                         pageNavigation: navigatePage,
                         navigationEvent: NavigationEvent.FourthPageClickEvent,
                       ),
                       DropDownItem(
-                          text: "Fifth",
-                          icon: Icons.accessible_forward_rounded,
+                          text: "Empfehlungen",
+                          icon: Icons.receipt_long,
                           pageNavigation: navigatePage,
                           navigationEvent: NavigationEvent.FifthPageClickEvent),
                       DropDownItem(
-                        text: "Sixth",
-                        icon: Icons.accessibility_rounded,
+                        text: "Behandlungsende",
+                        icon: Icons.receipt_long,
                         pageNavigation: navigatePage,
                         navigationEvent: NavigationEvent.SixthPageClickEvent,
                       )
