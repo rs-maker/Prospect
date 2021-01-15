@@ -16,7 +16,8 @@ class FifthPage extends TextPage with NavigationStates {
           "gegeben hat. Auf keinen Fall dürfen Sie das Arzneimittel einer anderen Person geben - auch "
           "dann nicht, wenn Sie den Eindruck haben, dass diese Person dieselben Symptome hat wie "
           "Sie. ",
-      first: true,
+      titleSize: 26,
+      contentSize: 18,
     ),
     Padding(padding: const EdgeInsets.only(bottom: 20)),
     BulletList(
@@ -119,6 +120,9 @@ class FifthPage extends TextPage with NavigationStates {
             "Roaccutane-Behandlung geeignet ist. "
       ],
     ),
-    NavBar(back: NavigationEvent.FourthPageClickEvent, forward: NavigationEvent.SixthPageClickEvent,),
+    NavBar(
+      back: NavigationEvent.FourthPageClickEvent,
+      forward: NavigationEvent.SixthPageClickEvent,
+    ),
   ];
 }

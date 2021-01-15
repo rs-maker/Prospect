@@ -12,19 +12,20 @@ class SixthPage extends TextPage with NavigationStates {
       title:
           "Was passiert bei männlichen und weiblichen Patienten wenn die Behandlung mit Roaccutane abgeschlossen ist?",
       content: "",
-      first: true,
+      titleSize: 26,
+      contentSize: 18,
     ),
     BulletList(
       title: "",
       strings: [
-        "Die meisten Patienten, die mit Roaccutane behandelt wurden, stellen fest, dass sich der"
-            "Zustand ihrer Haut auch nach dem Ende der Roaccutane-Behandlung weiter bessert. Bei"
-            "einigen Patienten ist jedoch eine zweite Behandlung mit Roaccutane erforderlich, um ein"
-            "zufriedenstellendes Behandlungsergebnis zu erzielen. Wenn dies bei Ihnen der Fall ist,"
-            "darf die zweite Behandlung erst nach Ablauf von mindestens acht Wochen nach dem"
+        "Die meisten Patienten, die mit Roaccutane behandelt wurden, stellen fest, dass sich der "
+            "Zustand ihrer Haut auch nach dem Ende der Roaccutane-Behandlung weiter bessert. Bei "
+            "einigen Patienten ist jedoch eine zweite Behandlung mit Roaccutane erforderlich, um ein "
+            "zufriedenstellendes Behandlungsergebnis zu erzielen. Wenn dies bei Ihnen der Fall ist, "
+            "darf die zweite Behandlung erst nach Ablauf von mindestens acht Wochen nach dem "
             "Ende der ersten Roaccutane-Behandlung erfolgen. ",
-        "Im ersten Monat nach dem Ende der Roaccutane-Behandlung dürfen Sie kein Blut"
-            "spenden, weil es eine gewisse Zeit dauert, bis in Ihrem Blut kein Roaccutane mehr"
+        "Im ersten Monat nach dem Ende der Roaccutane-Behandlung dürfen Sie kein Blut "
+            "spenden, weil es eine gewisse Zeit dauert, bis in Ihrem Blut kein Roaccutane mehr "
             "vorhanden ist. ",
         "Wenn Sie noch Roaccutane-Kapseln übrig haben, dürfen Sie diese Kapseln auf keinen Fall "
             "an andere Personen weitergeben, da andernfalls bei diesen Personen schwere "
@@ -44,6 +45,9 @@ class SixthPage extends TextPage with NavigationStates {
             "Schwangerschaftstest ist obligatorisch). "
       ],
     ),
-    NavBar(back: NavigationEvent.FifthPageClickEvent, forward: null,),
+    NavBar(
+      back: NavigationEvent.FifthPageClickEvent,
+      forward: null,
+    ),
   ];
 }
