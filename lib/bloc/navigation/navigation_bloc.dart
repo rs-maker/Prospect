@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prospect/checklist/checklist_layout.dart';
+import 'package:prospect/checklist/questions/first_question.dart';
 import 'package:prospect/pages/fifth_page.dart';
 import 'package:prospect/pages/first_page.dart';
 import 'package:prospect/pages/fourth_page.dart';
@@ -15,12 +17,16 @@ enum NavigationEvent {
   FourthPageClickEvent,
   FifthPageClickEvent,
   SixthPageClickEvent,
+
+  CheckListClickEvent,
+  FirstQuestionClickEvent,
 }
 
 abstract class NavigationStates {}
 
 class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
   NavigationBloc() : super(HomePage());
+  NavigationBloc.question(key) : super (FirstQuestion(checkListKey: key));
 
   @override
   Stream<NavigationStates> mapEventToState(NavigationEvent event) async* {
@@ -45,6 +51,12 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
         break;
       case NavigationEvent.SixthPageClickEvent:
         yield SixthPage();
+        break;
+      case NavigationEvent.CheckListClickEvent:
+        yield CheckListLayout();
+        break;
+      case NavigationEvent.FirstQuestionClickEvent:
+        yield FirstQuestion();
         break;
     }
   }

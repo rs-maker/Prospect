@@ -91,10 +91,19 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                       navigatePage(NavigationEvent.HomePageClickEvent);
                     },
                   ),
+                  SideBarItem(
+                    iconData: Icons.check_box,
+                    title: "Checklist",
+                    method: () {
+                      if (_key.currentState.isDropDownOpened)
+                        _key.currentState.onButtonPressed();
+                      navigatePage(NavigationEvent.CheckListClickEvent);
+                    },
+                  ),
                   CustomDropDown(
-                    key: _key,
                     //this global Key allows us to close the drop down when a button in the sidebar is pressed -> eventually it would be cool if the drop down could stay open and stick with the sidebar
-                    // TODO: this should not happen in this class. we should pass CustomDropDown a reference to Sidebar and create a navigation function inside the DropDownItem class
+                  key: _key,
+                    // TODO: the following should not happen in this class. we should pass CustomDropDown a reference to Sidebar and create a navigation function inside the DropDownItem class
                     // ^ turns out this is a lot more complicated than it seems at first glance
                     items: [
                       //when creating DropDownItems here be aware that they are changed in dropdown_container class before being displayed
