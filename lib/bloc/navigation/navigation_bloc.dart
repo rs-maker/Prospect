@@ -1,6 +1,9 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:prospect/checklist/checklist.dart';
 import 'package:prospect/checklist/checklist_layout.dart';
 import 'package:prospect/checklist/questions/first_question.dart';
+import 'package:prospect/checklist/questions/second_questions.dart';
 import 'package:prospect/pages/fifth_page.dart';
 import 'package:prospect/pages/first_page.dart';
 import 'package:prospect/pages/fourth_page.dart';
@@ -17,17 +20,20 @@ enum NavigationEvent {
   FourthPageClickEvent,
   FifthPageClickEvent,
   SixthPageClickEvent,
-
   CheckListClickEvent,
   FirstQuestionClickEvent,
+  SecondQuestionEvent,
 }
 
 abstract class NavigationStates {}
 
 class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
-  NavigationBloc() : super(HomePage());
-  NavigationBloc.question(key) : super (FirstQuestion(checkListKey: key));
+  NavigationBloc({this.checkListKey}) : super(HomePage());
 
+  final GlobalKey<CheckListState> checkListKey;
+
+  NavigationBloc.question({this.checkListKey})
+      : super(FirstQuestion(checkListKey: checkListKey));
   @override
   Stream<NavigationStates> mapEventToState(NavigationEvent event) async* {
     switch (event) {
@@ -56,7 +62,17 @@ class NavigationBloc extends Bloc<NavigationEvent, NavigationStates> {
         yield CheckListLayout();
         break;
       case NavigationEvent.FirstQuestionClickEvent:
-        yield FirstQuestion();
+        yield FirstQuestion(
+          checkListKey: checkListKey,
+        );
+        break;
+      case NavigationEvent.SecondQuestionEvent:
+        yield SecondQuestion(
+          checkListKey: checkListKey,
+        );
+        break;
+      default:
+        yield HomePage();
         break;
     }
   }

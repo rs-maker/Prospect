@@ -1,11 +1,25 @@
+import 'dart:collection';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
+import 'package:prospect/checklist/checklist.dart';
 
-class QuestionLayout extends StatelessWidget with NavigationStates {
-  final List<String> questions;
-  final Key checkListKey;
-  const QuestionLayout({Key key, this.questions, this.checkListKey}) : super(key: key);
+class QuestionLayout extends StatefulWidget with NavigationStates {
+  final LinkedHashMap<int, String> questions;
+  final GlobalKey<CheckListState> checkListKey;
+  final NavigationEvent forward;
+  final NavigationEvent back;
 
+  const QuestionLayout(
+      {Key key, this.questions, this.checkListKey, this.forward, this.back})
+      : super(key: key);
+
+  @override
+  _QuestionLayoutState createState() => _QuestionLayoutState();
+}
+
+class _QuestionLayoutState extends State<QuestionLayout> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -22,7 +36,13 @@ class QuestionLayout extends StatelessWidget with NavigationStates {
                           Icons.arrow_back,
                           color: Theme.of(context).secondaryHeaderColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          widget.back != null
+                              ? BlocProvider.of<NavigationBloc>(context)
+                                  .add(widget.back)
+                              // ignore: unnecessary_statements
+                              : () {};
+                        },
                         backgroundColor: Theme.of(context).indicatorColor,
                       )),
                   Expanded(
@@ -36,7 +56,14 @@ class QuestionLayout extends StatelessWidget with NavigationStates {
                           Icons.arrow_forward,
                           color: Theme.of(context).secondaryHeaderColor,
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          // ignore: unnecessary_statements
+                          widget.forward != null
+                              ? BlocProvider.of<NavigationBloc>(context)
+                                  .add(widget.forward)
+                              // ignore: unnecessary_statements
+                              : () {};
+                        },
                         backgroundColor: Theme.of(context).indicatorColor,
                       )),
                 ]),
@@ -46,7 +73,7 @@ class QuestionLayout extends StatelessWidget with NavigationStates {
 
   List<Widget> _buildQuestions(context) {
     List<Widget> ret = [];
-    questions.forEach((element) {
+    widget.questions.forEach((int number, String string) {
       ret.add(Container(
         padding: const EdgeInsets.all(20),
         decoration: BoxDecoration(
@@ -55,10 +82,19 @@ class QuestionLayout extends StatelessWidget with NavigationStates {
         ),
         child: Row(
           children: [
-            Expanded(child: Text(element)),
+            Expanded(child: Text(string)),
             Transform.scale(
                 scale: 2.0,
-                child: Checkbox(value: false, onChanged: (value) {})),
+                child: Checkbox(
+                    value: widget.checkListKey.currentState
+                            ?.getcheckMark(number) ??
+                        false,
+                    onChanged: (value) {
+                      setState(() {
+                        widget.checkListKey.currentState.flipcheckMark(number);
+                        widget.checkListKey.currentState.setState(() {});
+                      });
+                    })),
           ],
         ),
       ));

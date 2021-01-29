@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/bloc/navigation/checknav_bloc.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
 import 'checklist.dart';
 
@@ -9,21 +8,18 @@ class CheckListLayout extends StatelessWidget with NavigationStates {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<CheckListNav>(
-        create: (context) => CheckListNav(checklistkey: _key),
+    CheckList checkList = CheckList(key: _key);
+    return BlocProvider<NavigationBloc>(
+        create: (context) => NavigationBloc.question(checkListKey: _key),
         child: Scaffold(
           body: Stack(
             children: <Widget>[
-              BlocBuilder<CheckListNav, NavigationStates>(
+              BlocBuilder<NavigationBloc, NavigationStates>(
                 builder: (context, navigationState) {
                   return navigationState as Widget;
                 },
               ),
-              Align(
-                  alignment: Alignment.topRight,
-                  child: CheckList(
-                    key: _key,
-                  )),
+              Align(alignment: Alignment.topRight, child: checkList),
             ],
           ),
         ));
