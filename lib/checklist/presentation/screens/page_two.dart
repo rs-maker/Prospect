@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/checklist_revisited/logic/checklist_cubit.dart';
-import 'package:prospect/checklist_revisited/presentation/screens/QuestionBlock.dart';
-import 'package:prospect/checklist_revisited/presentation/screens/question_page.dart';
+import 'package:prospect/checklist/logic/checklist_cubit.dart';
+import 'package:prospect/checklist/presentation/screens/questionBlock.dart';
+import 'package:prospect/checklist/presentation/screens/question_page.dart';
 
-class PageOne extends QuestionPage {
+class PageTwo extends QuestionPage {
+  @override
+  String get forward => null;
+  @override
+  String get back => "/";
   @override
   List<Widget> buildQuestions(
       CheckListState checkListState, QuestionPageState questionPageState) {
@@ -12,25 +16,25 @@ class PageOne extends QuestionPage {
         question: "TEST",
         checkListState: checkListState,
         questionPageState: questionPageState,
-        number: 0,
+        number: 4,
       ),
       QuestionBlock(
         question: "TEST",
         checkListState: checkListState,
         questionPageState: questionPageState,
-        number: 1,
+        number: 5,
       ),
       QuestionBlock(
         question: "TEST",
         checkListState: checkListState,
         questionPageState: questionPageState,
-        number: 2,
+        number: 6,
       ),
       QuestionBlock(
         question: "TEST",
         checkListState: checkListState,
         questionPageState: questionPageState,
-        number: 3,
+        number: 7,
       )
     ];
   }

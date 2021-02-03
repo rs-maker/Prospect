@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:prospect/bloc/navigation/navigation_bloc.dart';
-import 'package:prospect/checklist_revisited/presentation/router/checklist_router.dart';
+import 'package:prospect/checklist/presentation/router/checklist_router.dart';
 
 class MyChecklist extends StatefulWidget with NavigationStates{
   @override

@@ -1,11 +1,15 @@
-import 'dart:collection';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/checklist_revisited/logic/checklist_cubit.dart';
+import 'package:prospect/checklist/logic/checklist_cubit.dart';
 
 abstract class QuestionPage extends StatefulWidget {
-  List<Widget> buildQuestions(CheckListState checkListState, QuestionPageState _questionPageState);
+  List<Widget> buildQuestions(
+      CheckListState checkListState, QuestionPageState _questionPageState);
+
+  String get forward;
+
+  String get back;
+
   @override
   QuestionPageState createState() => QuestionPageState();
 }
@@ -23,7 +27,35 @@ class QuestionPageState extends State<QuestionPage> {
                 builder: (buildContext, state) {
                   return Expanded(
                       child: ListView(
-                    children: widget.buildQuestions(state, this),
+                    children: widget.buildQuestions(state, this) +
+                        [
+                          Row(children: [
+                            FloatingActionButton(
+                              heroTag: "bkw",
+                              onPressed: () {
+                                widget.back == null
+                                    ? () {}
+                                    : Navigator.of(context)
+                                        .pushNamed(widget.back);
+                              },
+                              child: Icon(Icons.arrow_back_rounded),
+                            ),
+                            Expanded(
+                                child: Padding(
+                              padding: const EdgeInsets.all(0),
+                            )),
+                            FloatingActionButton(
+                              heroTag: "fwd",
+                              onPressed: () {
+                                widget.forward == null
+                                    ? () {}
+                                    : Navigator.of(context)
+                                    .pushNamed(widget.forward);
+                              },
+                              child: Icon(Icons.arrow_forward_rounded),
+                            )
+                          ])
+                        ],
                   ));
                 },
                 listener: (buildContext, state) {}),

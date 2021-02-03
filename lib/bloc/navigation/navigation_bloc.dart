@@ -1,5 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/checklist_revisited/checklistmain.dart';
+import 'package:prospect/checklist/checklistmain.dart';
 import 'package:prospect/pages/fifth_page.dart';
 import 'package:prospect/pages/first_page.dart';
 import 'package:prospect/pages/fourth_page.dart';

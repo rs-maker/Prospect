@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/checklist_revisited/logic/checklist_cubit.dart';
-import 'package:prospect/checklist_revisited/presentation/screens/question_page.dart';
+import 'package:prospect/checklist/logic/checklist_cubit.dart';
+import 'package:prospect/checklist/presentation/screens/question_page.dart';
 
 class QuestionBlock extends StatefulWidget {
   final String question;

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/checklist_revisited/checklistmain.dart';
 import 'package:prospect/sidebar/sidebar_layout.dart';
 
 void main() {

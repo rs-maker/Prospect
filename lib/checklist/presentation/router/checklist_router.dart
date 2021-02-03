@@ -1,9 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/checklist_revisited/logic/checklist_cubit.dart';
-import 'package:prospect/checklist_revisited/presentation/screens/ConcretePage.dart';
-import 'package:prospect/checklist_revisited/presentation/screens/home_screen.dart';
+import 'package:prospect/checklist/logic/checklist_cubit.dart';
+import 'package:prospect/checklist/presentation/screens/intro_page.dart';
+import 'package:prospect/checklist/presentation/screens/page_one.dart';
+import 'package:prospect/checklist/presentation/screens/page_two.dart';
+
 class CheckListRouter {
   //this creates a Bloc provided to all checklistpages containing the checkmarks
   // ChecListCubit(parameter) where parameter is the number of checkmarks in the list
@@ -15,17 +16,21 @@ class CheckListRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: _checkListCubit,
-            child: HomeScreen(
-              title: "Home Screen",
-              color: Colors.blueAccent,
-            ),
+            child: IntroPage(),
           ),
         );
-      case '/questionpage':
+      case '/one':
         return MaterialPageRoute(
           builder: (_) => BlocProvider.value(
             value: _checkListCubit,
             child: PageOne(),
+          ),
+        );
+      case '/two':
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: _checkListCubit,
+            child: PageTwo(),
           ),
         );
       default:
@@ -33,7 +38,7 @@ class CheckListRouter {
     }
   }
 
-  void dispose(){
+  void dispose() {
     _checkListCubit.close();
   }
 }

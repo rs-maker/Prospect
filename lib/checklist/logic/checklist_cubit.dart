@@ -7,4 +7,5 @@ class CheckListCubit extends Cubit<CheckListState> {
   CheckListCubit(int x) : super(CheckListState(size: x));
 
   void flipCheckMark(int pos) => emit(state.flipCheckMark(pos));
+  void assignGender(bool xy) => emit(state.assignGender(xy));
 }
