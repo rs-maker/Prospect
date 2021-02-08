@@ -14,6 +14,7 @@ class _MyChecklistState extends State<MyChecklist> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'CHECKLIST',
+      debugShowCheckedModeBanner: false,
       onGenerateRoute: _checkListRouter.onGenerateRoute,
       theme: ThemeData(
         primarySwatch: Colors.blue,

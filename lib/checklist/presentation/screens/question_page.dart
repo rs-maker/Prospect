@@ -6,6 +6,8 @@ abstract class QuestionPage extends StatefulWidget {
   List<Widget> buildQuestions(
       CheckListState checkListState, QuestionPageState _questionPageState);
 
+  String get titel;
+
   String get forward;
 
   String get back;
@@ -27,9 +29,9 @@ class QuestionPageState extends State<QuestionPage> {
                 builder: (buildContext, state) {
                   return Expanded(
                       child: ListView(
-                    children: widget.buildQuestions(state, this) +
-                        [
-                          Row(children: [
+                    children: <Widget>[Row(children: [Text(widget.titel, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),)],)] +
+                    widget.buildQuestions(state, this) +
+                        [Row(children: [
                             FloatingActionButton(
                               heroTag: "bkw",
                               onPressed: () {
