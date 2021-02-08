@@ -49,21 +49,52 @@ class PageOne extends QuestionPage {
       number: 2,
     );
     QuestionBlock questionBlock3 = QuestionBlock(
-      question: "TEST",
+      question:
+          "Ich bin mir bewusst dass Isotretinoin (der Wirkstoff in Roaccutane) \"teratogen\" ist. Teratogene Stoffe können schwere Missbildungen an ungeborenen Kindern und Neugeborenen verursachen.",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 3,
     );
     QuestionBlock questionBlock4 = QuestionBlock(
-      question: "MALE ONLY",
+      question: "Ich weiß dass ich wegen dess teratogenen Risiko bis einschließlich ein Monat nach Ende der Behandlung mit Roaccutane kein Blut spenden darf.",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 4,
     );
+    QuestionBlock questionBlock5 = QuestionBlock(
+      question: "Ich darf Roaccutane mit niemandem teilen und muss unverbrauchte Tabletten an die Apotheke zurückgeben",
+      checkListState: checkListState,
+      questionPageState: questionPageState,
+      number: 5,
+    );
+    QuestionBlock questionBlock6 = QuestionBlock(
+      question: "Ich verstehe, dass ich während meiner Behandlung monantliche Kontrolluntersuchungen einhalten muss.",
+      checkListState: checkListState,
+      questionPageState: questionPageState,
+      number: 5,
+    );
+    QuestionBlock questionBlock7 = QuestionBlock(
+      question: "Ich verstehe, dass ich einen Monat vor meiner Behandlung bis einschließlich einen Monat nach Ende der Behandlung untunterbrochen wirksam verhüten muss.",
+      checkListState: checkListState,
+      questionPageState: questionPageState,
+      number: 5,
+    );
+    QuestionBlock questionBlock8 = QuestionBlock(
+      question: "Ich verstehe dass ich vor meiner Behandlung mit einem Gynäkologen sprechen muss, damit dieser die Therapie erlaubt.",
+      checkListState: checkListState,
+      questionPageState: questionPageState,
+      number: 5,
+    );
+    QuestionBlock questionBlock9 = QuestionBlock(
+      question: "Ich verstehe dass die oberen Punkte auch zutreffen wenn ich im Moment nicht sexuell aktiv bin oder meine Periode nicht habe.",
+      checkListState: checkListState,
+      questionPageState: questionPageState,
+      number: 5,
+    );
     if (checkListState.childbearing) {
-      return [questionBlock0, questionBlock1, questionBlock2, questionBlock3];
+      return [questionBlock0, questionBlock1, questionBlock2, questionBlock3, questionBlock4,questionBlock5, questionBlock6, questionBlock7, questionBlock8,questionBlock9];
     } else {
-      return [questionBlock0, questionBlock2, questionBlock3, questionBlock4];
+      return [questionBlock0, questionBlock2, questionBlock3, questionBlock4,questionBlock5];
     }
   }
 }
