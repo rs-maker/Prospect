@@ -43,9 +43,21 @@ class _IntroPageState extends State<IntroPage> {
                           state.assignGender(v);
                           setState(() {});
                         },
-                      )
+                      ),
                     ],
                   ),
+                  Padding(padding: const EdgeInsets.only(top: 10)),
+                  SizedBox(
+                    width: 100,
+                    height: 30,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        labelText: "Code",
+                        border: OutlineInputBorder(),
+                      ),
+                    ),
+                  ),
+                  Padding(padding: const EdgeInsets.only(top: 10)),
                 ],
               ),
             );

@@ -24,11 +24,19 @@ class CheckListState {
     return CheckListState.fromold(this);
   }
 
+  CheckListState setCheckList(String code){
+    this.checkmarks = _listFromCode(code);
+    return CheckListState.fromold(this);
+  }
+
   static List<bool> initialiseMap(int num) {
     List<bool> list = [];
     for (int i = 0; i < num; i++) {
       list.add(false);
     }
     return list;
+  }
+  List<bool> _listFromCode(String code){
+     
   }
 }
