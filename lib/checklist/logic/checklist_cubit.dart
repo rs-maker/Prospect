@@ -1,7 +1,10 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:convert/convert.dart';
+import 'dart:math';
 part 'checklist_state.dart';
+
 
 class CheckListCubit extends Cubit<CheckListState> {
   CheckListCubit(int x) : super(CheckListState(size: x));

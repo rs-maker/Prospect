@@ -8,69 +8,97 @@ class IntroPage extends StatefulWidget {
 }
 
 class _IntroPageState extends State<IntroPage> {
+  final textController = TextEditingController();
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).backgroundColor,
-      child: Column(children: [
-        Expanded(
-            child: Padding(
-          padding: const EdgeInsets.only(top: 0),
-        )),
-        BlocConsumer<CheckListCubit, CheckListState>(
-          builder: (buildContext, state) {
-            return Material(
-              color: Theme.of(context).backgroundColor,
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("I can bear children: "),
-                      DropdownButton(
-                        value: state.childbearing,
-                        items: [
-                          DropdownMenuItem(
-                            child: Text("True"),
-                            value: true,
-                          ),
-                          DropdownMenuItem(
-                            child: Text("False"),
-                            value: false,
-                          ),
-                        ],
-                        onChanged: (v) {
-                          state.assignGender(v);
-                          setState(() {});
-                        },
-                      ),
-                    ],
-                  ),
-                  Padding(padding: const EdgeInsets.only(top: 10)),
-                  SizedBox(
-                    width: 100,
-                    height: 30,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        labelText: "Code",
-                        border: OutlineInputBorder(),
+    return Scaffold(
+      body: Container(
+        color: Theme.of(context).backgroundColor,
+        child: Column(children: [
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.only(top: 0),
+          )),
+          BlocConsumer<CheckListCubit, CheckListState>(
+            builder: (buildContext, state) {
+              return Material(
+                color: Theme.of(context).backgroundColor,
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text("I am biologically female: "),
+                        DropdownButton(
+                          value: state.childbearing,
+                          items: [
+                            DropdownMenuItem(
+                              child: Text("True"),
+                              value: true,
+                            ),
+                            DropdownMenuItem(
+                              child: Text("False"),
+                              value: false,
+                            ),
+                          ],
+                          onChanged: (v) {
+                            state.assignGender(v);
+                            setState(() {});
+                          },
+                        ),
+                      ],
+                    ),
+                    Padding(padding: const EdgeInsets.only(top: 10)),
+                    SizedBox(
+                      width: 100,
+                      height: 30,
+                      child: TextField(
+                        controller: textController,
+                        decoration: InputDecoration(
+                          labelText: "Code",
+                          border: OutlineInputBorder(),
+                        ),
                       ),
                     ),
-                  ),
-                  Padding(padding: const EdgeInsets.only(top: 10)),
-                ],
-              ),
-            );
-          },
-          listener: (b, s) {},
-        ),
-        ElevatedButton(
-            child: Text("Start"),
-            onPressed: () {
-              Navigator.of(context).pushNamed("/one");
-            }),
-        Expanded(child: Padding(padding: const EdgeInsets.only(top: 0))),
-      ]),
+                    Padding(padding: const EdgeInsets.only(top: 10)),
+                    ElevatedButton(
+                        child: Text("Start"),
+                        onPressed: () {
+                          String code = textController.text;
+                          if (code == "") {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(content: Text("Started without code")));
+                            state.setCheckList("0");
+                            Navigator.of(context).pushNamed("/one");
+                          } else {
+                            int intCode = int.tryParse(code, radix: 16);
+                            if (intCode == null) {
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(SnackBar(content: Text("Invalid code!")));
+                            } else {
+                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                                  content: Text("Started with code: \"" + code + "\"")));
+                              state.setCheckList(code);
+                              Navigator.of(context).pushNamed("/one");
+                            }
+                          }
+                        }),
+                  ],
+                ),
+              );
+            },
+            listener: (b, s) {},
+          ),
+          Expanded(child: Padding(padding: const EdgeInsets.only(top: 0))),
+        ]),
+      ),
     );
   }
 }

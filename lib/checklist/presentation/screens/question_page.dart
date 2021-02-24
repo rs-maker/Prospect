@@ -29,9 +29,37 @@ class QuestionPageState extends State<QuestionPage> {
                 builder: (buildContext, state) {
                   return Expanded(
                       child: ListView(
-                    children: <Widget>[Row(children: [Text(widget.titel, style: TextStyle(fontSize: 22, fontWeight: FontWeight.w300),)],)] +
-                    widget.buildQuestions(state, this) +
-                        [Row(children: [
+                    children: <Widget>[
+                          Row(
+                            children: [
+                              Text(
+                                widget.titel,
+                                style: TextStyle(
+                                    fontSize: 22, fontWeight: FontWeight.w300),
+                              ),
+                              Expanded(
+                                  child: Padding(
+                                padding: const EdgeInsets.all(0),
+                              )),
+                              Text("Recovery code: ", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                              DecoratedBox(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text(state.getCode(), style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    border: Border.all(
+                                      width: 5,
+                                      color: Colors.black38,
+                                    ),
+                                  )),
+                            ],
+                          )
+                        ] +
+                        widget.buildQuestions(state, this) +
+                        [
+                          Row(children: [
                             FloatingActionButton(
                               heroTag: "bkw",
                               onPressed: () {
@@ -52,7 +80,7 @@ class QuestionPageState extends State<QuestionPage> {
                                 widget.forward == null
                                     ? () {}
                                     : Navigator.of(context)
-                                    .pushNamed(widget.forward);
+                                        .pushNamed(widget.forward);
                               },
                               child: Icon(Icons.arrow_forward_rounded),
                             )

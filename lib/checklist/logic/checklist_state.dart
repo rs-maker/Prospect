@@ -3,18 +3,19 @@ part of 'checklist_cubit.dart';
 class CheckListState {
   int size;
   List<bool> checkmarks;
+
   // some questions are only relevant for childbearing patients
   bool childbearing = true;
 
   CheckListState({@required this.size}) : this.checkmarks = initialiseMap(size);
 
-  CheckListState.fromold(CheckListState checkListState){
+  CheckListState.fromold(CheckListState checkListState) {
     this.size = checkListState.checkmarks.length;
     this.checkmarks = checkListState.checkmarks;
     this.childbearing = checkListState.childbearing;
   }
 
-  CheckListState assignGender(bool xy){
+  CheckListState assignGender(bool xy) {
     this.childbearing = xy;
     return CheckListState.fromold(this);
   }
@@ -24,7 +25,7 @@ class CheckListState {
     return CheckListState.fromold(this);
   }
 
-  CheckListState setCheckList(String code){
+  CheckListState setCheckList(String code) {
     this.checkmarks = _listFromCode(code);
     return CheckListState.fromold(this);
   }
@@ -36,7 +37,25 @@ class CheckListState {
     }
     return list;
   }
-  List<bool> _listFromCode(String code){
-     
+
+  String getCode() {
+    int code = 0;
+    for(int i = 0; i < size; i ++){
+      if(checkmarks[i])
+        code += pow(2,i);
+    }
+    return code.toRadixString(16);
+  }
+
+  List<bool> _listFromCode(String code) {
+    int num = int.tryParse(code, radix: 16);
+    List<bool> result = [];
+    while (num > 0) {
+      result.add(num % 2 == 1);
+      num = (num / 2).floor();
+    }
+    if (result.length < size)
+      result = result + List.generate(size - result.length, (index) => false);
+    return result;
   }
 }

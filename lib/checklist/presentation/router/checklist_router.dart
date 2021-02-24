@@ -8,7 +8,7 @@ import 'package:prospect/checklist/presentation/screens/page_two.dart';
 class CheckListRouter {
   //this creates a Bloc provided to all checklistpages containing the checkmarks
   // ChecListCubit(parameter) where parameter is the number of checkmarks in the list
-  final CheckListCubit _checkListCubit = CheckListCubit(10);
+  final CheckListCubit _checkListCubit = CheckListCubit(100);
 
   Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
