@@ -41,11 +41,20 @@ class QuestionPageState extends State<QuestionPage> {
                                   child: Padding(
                                 padding: const EdgeInsets.all(0),
                               )),
-                              Text("Recovery code: ", style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                              Text(
+                                "Recovery code: ",
+                                style: TextStyle(
+                                    fontSize: 16, fontWeight: FontWeight.bold),
+                              ),
                               DecoratedBox(
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
-                                    child: Text(state.getCode(), style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),),
+                                    child: Text(
+                                      state.getCode(),
+                                      style: TextStyle(
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.bold),
+                                    ),
                                   ),
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
@@ -93,80 +102,162 @@ class QuestionPageState extends State<QuestionPage> {
             * for additional checkmarks the constructor parameter of CheckListCubit in checklist_router  has to be adjusted*/
             BlocConsumer<CheckListCubit, CheckListState>(
                 builder: (buildContext, state) {
-                  return Column(
-                    children: [
-                      Checkbox(
-                          value: state.checkmarks[0],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(0);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[1],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(1);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[2],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(2);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[3],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(3);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[4],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(4);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[5],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(5);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[6],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(6);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[7],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(7);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[8],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(8);
-                            });
-                          }),
-                      Checkbox(
-                          value: state.checkmarks[9],
-                          onChanged: (v) {
-                            setState(() {
-                              state.flipCheckMark(9);
-                            });
-                          }),
-                    ],
-                  );
+                  if (state.childbearing) {
+                    return Column(
+                      children: [
+                        Checkbox(
+                            value: state.checkmarks[0],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(0);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[1],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(1);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[2],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(2);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[3],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(3);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[4],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(4);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[5],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(5);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[6],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(6);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[7],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(7);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[8],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(8);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[9],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(9);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[10],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(10);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[11],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(11);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[12],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(12);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.getFinal(),
+                            onChanged: (v) {
+                              setState(() {
+                              });
+                            }),
+                      ],
+                    );
+                  } else {
+                    return Column(
+                      children: [
+                        Checkbox(
+                            value: state.checkmarks[0],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(0);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[2],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(2);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[3],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(3);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[4],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(4);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[5],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(5);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.checkmarks[12],
+                            onChanged: (v) {
+                              setState(() {
+                                state.flipCheckMark(12);
+                              });
+                            }),
+                        Checkbox(
+                            value: state.getFinal(),
+                            onChanged: (v) {
+                              setState(() {
+                              });
+                            }),
+                      ],
+                    );
+                  }
                 },
                 listener: (buildContext, state) {})
           ],

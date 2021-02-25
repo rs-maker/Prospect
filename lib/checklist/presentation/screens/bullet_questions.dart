@@ -47,17 +47,27 @@ class _BulletQuestionState extends State<BulletQuestions> {
                 ),
               ),
             ),
-            Transform.scale(
-                scale: 2.0,
-                child: Checkbox(
-                    value: widget.checkListState.checkmarks[widget.number],
-                    onChanged: (value) {
-                      setState(() {
-                        widget.checkListState.flipCheckMark(widget.number);
-                        //This line updates the state of the little bar on the right of the page that displays the little checkmarks
-                        widget.questionPageState.setState(() {});
-                      });
-                    })),
+            Container(
+              padding: const EdgeInsets.all(10),
+              decoration: BoxDecoration(border: Border.all(color: Colors.black38, width: 3)),
+              child: Column(
+                children: [
+                  Text("I understand"),
+                  Padding(padding: const EdgeInsets.all(3),),
+                  Transform.scale(
+                      scale: 2.0,
+                      child: Checkbox(
+                          value: widget.checkListState.checkmarks[widget.number],
+                          onChanged: (value) {
+                            setState(() {
+                              widget.checkListState.flipCheckMark(widget.number);
+                              //This line updates the state of the little bar on the right of the page that displays the little checkmarks
+                              widget.questionPageState.setState(() {});
+                            });
+                          })),
+                ],
+              ),
+            ),
           ],
         ),
       ),

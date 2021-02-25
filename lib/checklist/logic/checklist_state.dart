@@ -40,11 +40,21 @@ class CheckListState {
 
   String getCode() {
     int code = 0;
-    for(int i = 0; i < size; i ++){
-      if(checkmarks[i])
-        code += pow(2,i);
+    for (int i = 0; i < size; i++) {
+      if (checkmarks[i]) code += pow(2, i);
     }
     return code.toRadixString(16);
+  }
+  bool getFinal(){
+    bool result = true;
+    if(childbearing){
+      for(int i = 0; i < 13; i++){
+        result = checkmarks[i] && result;
+      }
+    }else{
+      result = checkmarks[0] && checkmarks[2] && checkmarks[3] && checkmarks[4] && checkmarks[5] && checkmarks[12];
+    }
+    return result;
   }
 
   List<bool> _listFromCode(String code) {

@@ -76,27 +76,7 @@ class PageOne extends QuestionPage {
       questionPageState: questionPageState,
       number: 6,
     );
-    QuestionBlock questionBlock7 = QuestionBlock(
-      question:
-          "Ich verstehe, dass ich einen Monat vor meiner Behandlung bis einschließlich einen Monat nach Ende der Behandlung untunterbrochen wirksam verhüten muss.",
-      checkListState: checkListState,
-      questionPageState: questionPageState,
-      number: 7,
-    );
-    QuestionBlock questionBlock8 = QuestionBlock(
-      question:
-          "Ich verstehe dass ich vor meiner Behandlung mit einem Gynäkologen sprechen muss, damit dieser die Therapie erlaubt.",
-      checkListState: checkListState,
-      questionPageState: questionPageState,
-      number: 8,
-    );
-    QuestionBlock questionBlock9 = QuestionBlock(
-      question:
-          "Ich verstehe dass die oberen Punkte auch zutreffen wenn ich im Moment nicht sexuell aktiv bin oder meine Periode nicht habe.",
-      checkListState: checkListState,
-      questionPageState: questionPageState,
-      number: 9,
-    );
+
     if (checkListState.childbearing) {
       return [
         questionBlock0,
@@ -106,9 +86,6 @@ class PageOne extends QuestionPage {
         questionBlock4,
         questionBlock5,
         questionBlock6,
-        questionBlock7,
-        questionBlock8,
-        questionBlock9
       ];
     } else {
       return [
