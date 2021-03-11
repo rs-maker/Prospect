@@ -26,7 +26,7 @@ class SecondPage extends StatelessWidget with NavigationStates {
                 "zeugen.\n", style: Theme.of(context).textTheme.bodyText1),]
             ),),
             NavBar(
-              back: NavigationEvent.FirstPageClickEvent,
+              back: NavigationEvent.OnePointOneClickEvent,
               forward: NavigationEvent.TwoPointTwoClickEvent,
             ),
           ]),

@@ -9,7 +9,7 @@ class BulletList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final List<ListTile> tiles = createTiles(strings, context);
-    title != null ? tiles.insert(0, ListTile(title: Text(title, style: TextStyle(color: Theme.of(context).dividerColor,fontSize: 24, fontWeight: FontWeight.w600),),)) : doNothing();
+    title != null ? tiles.insert(0, ListTile(title: Text(title, style: TextStyle(color: Theme.of(context).dividerColor,fontSize: 30,decoration: TextDecoration.underline, fontWeight: FontWeight.w600, fontFamily: "BebasNeue"),),)) : doNothing();
     return Column(
       children: tiles,
     );
