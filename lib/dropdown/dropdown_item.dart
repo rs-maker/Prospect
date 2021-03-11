@@ -35,12 +35,8 @@ class DropDownItem extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              text.toUpperCase(),
-              style: TextStyle(
-                color: Theme.of(context).indicatorColor,
-                fontSize: 18,
-                fontWeight: FontWeight.w600,
-              ),
+              text,
+              style: Theme.of(context).textTheme.headline3,
             ),
             Spacer(),
             RaisedButton(

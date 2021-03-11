@@ -29,6 +29,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   rxdart:
   flutter_bloc:
+  url_launcher:
 
 dev_dependencies:
   flutter_test:
@@ -50,7 +51,7 @@ flutter:
 
   #this allows you to use images in your code
   assets:
-    - images/
+    - assets/images/
 
   # To add assets to your application, add an assets section, like this:
   # assets:
@@ -62,6 +63,15 @@ flutter:
 
   # For details regarding adding assets from package dependencies, see
   # https://flutter.dev/assets-and-images/#from-packages
+  fonts:
+    - family: RobotoMedium
+      fonts:
+        - asset: assets/fonts/Roboto-Medium.ttf
+          weight: 500
+    - family: BebasNeue
+      fonts:
+        - asset: assets/fonts/BebasNeue-Regular.ttf
+          weight: 700
 
   # To add custom fonts to your application, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a

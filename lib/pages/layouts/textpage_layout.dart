@@ -12,7 +12,7 @@ class TextPage extends StatelessWidget {
     return Container(
       color: Theme.of(context).backgroundColor,
       child: ListView(
-          padding: const EdgeInsets.symmetric(horizontal: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 32),
           children: children),
     );
   }

@@ -79,12 +79,8 @@ class CustomDropDownState extends State<CustomDropDown> {
         child: Row(
           children: [
             Text(
-              widget.string.toUpperCase(),
-              style: TextStyle(
-                color: Theme.of(context).indicatorColor,
-                fontSize: 22,
-                fontWeight: FontWeight.w600,
-              ),
+              widget.string,
+              style: Theme.of(context).textTheme.headline2,
             ),
             Spacer(),
             Icon(

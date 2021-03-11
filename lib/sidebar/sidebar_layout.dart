@@ -11,7 +11,6 @@ class SideBarLayout extends StatelessWidget {
         child: Scaffold(
           body: Stack(
             children: <Widget>[
-              /*locator.get<HomePage>().build(context),*/
               BlocBuilder<NavigationBloc, NavigationStates>(
                   builder: (context, navigationState){
                     return navigationState as Widget;

@@ -26,6 +26,7 @@ class _IntroPageState extends State<IntroPage> {
               child: Padding(
             padding: const EdgeInsets.only(top: 0),
           )),
+          Text(""),
           BlocConsumer<CheckListCubit, CheckListState>(
             builder: (buildContext, state) {
               return Material(

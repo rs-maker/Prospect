@@ -254,12 +254,17 @@ class QuestionPageState extends State<QuestionPage> {
                                 state.flipCheckMark(12);
                               });
                             }),
-                        Checkbox(
-                            value: state.getFinal(),
-                            onChanged: (v) {
-                              setState(() {
-                              });
-                            }),
+                        Expanded(child: Padding(padding: const EdgeInsets.only(top: 0),)),
+                        Container(
+                          decoration: BoxDecoration(border: Border.all(color: state.getFinal() ? Colors.green : Colors.red, width: 3)),
+                          child: Checkbox(
+                              value: state.getFinal(),
+                              onChanged: (v) {
+                                setState(() {
+                                });
+                              }),
+                        ),
+                        Padding(padding: const EdgeInsets.only(bottom: 70),)
                       ],
                     );
                   }

@@ -21,7 +21,7 @@ class BulletList extends StatelessWidget {
     for (String string in strings) {
       container.add(ListTile(
         leading: MyBullet(),
-        title: Text(string, style: TextStyle(color: Theme.of(context).indicatorColor, fontSize: 18),),
+        title: Text(string + "\n", style: Theme.of(context).textTheme.bodyText1),
       ));
     }
     return container;
