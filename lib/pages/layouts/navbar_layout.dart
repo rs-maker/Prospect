@@ -16,7 +16,6 @@ class NavBar extends StatelessWidget {
         Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8),
-            color: Theme.of(context).secondaryHeaderColor,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -25,9 +24,10 @@ class NavBar extends StatelessWidget {
               Padding(padding: const EdgeInsets.only(left: 7),),
               Align(
                 alignment: Alignment.centerLeft,
-                child: FlatButton(
+                child: FloatingActionButton(
                   child: Icon(Icons.arrow_back),
-                  color: back== null ? Theme.of(context).disabledColor : Theme.of(context).indicatorColor,
+                  heroTag: "bck",
+                  //color: back== null ? Theme.of(context).disabledColor : Theme.of(context).indicatorColor,
                   onPressed: () {
                     // ignore: unnecessary_statements
                     back == null ? (){} :
@@ -36,12 +36,13 @@ class NavBar extends StatelessWidget {
                   },
                 ),
               ),
-              Padding(padding: const EdgeInsets.symmetric(horizontal: 80)),
+              Expanded(child: Padding(padding: const EdgeInsets.symmetric(horizontal: 80))),
               Align(
                 alignment: Alignment.centerRight,
-                child: FlatButton(
+                child: FloatingActionButton( //FlatButton
+                  heroTag: "fwd",
                   child: Icon(Icons.arrow_forward),
-                  color: forward == null ? Theme.of(context).disabledColor : Theme.of(context).indicatorColor,
+                  //color: forward == null ? Theme.of(context).disabledColor : Theme.of(context).indicatorColor,
                   onPressed: () {
                     // ignore: unnecessary_statements
                     forward == null ? (){} :

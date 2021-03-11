@@ -13,7 +13,7 @@ class _MyChecklistState extends State<MyChecklist> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CHECKLIST',
+      title: 'CHECKLISTE',
       debugShowCheckedModeBanner: false,
       onGenerateRoute: _checkListRouter.onGenerateRoute,
       theme: ThemeData(

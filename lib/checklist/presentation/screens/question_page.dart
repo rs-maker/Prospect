@@ -42,7 +42,7 @@ class QuestionPageState extends State<QuestionPage> {
                                 padding: const EdgeInsets.all(0),
                               )),
                               Text(
-                                "Recovery code: ",
+                                "Code: ",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
@@ -70,7 +70,7 @@ class QuestionPageState extends State<QuestionPage> {
                         [
                           Row(children: [
                             FloatingActionButton(
-                              heroTag: "bkw",
+                              heroTag: "bck",
                               onPressed: () {
                                 widget.back == null
                                     ? () {}
@@ -196,12 +196,17 @@ class QuestionPageState extends State<QuestionPage> {
                                 state.flipCheckMark(12);
                               });
                             }),
-                        Checkbox(
-                            value: state.getFinal(),
-                            onChanged: (v) {
-                              setState(() {
-                              });
-                            }),
+                        Expanded(child: Padding(padding: const EdgeInsets.only(top: 0),)),
+                        Container(
+                          decoration: BoxDecoration(border: Border.all(color: state.getFinal() ? Colors.green : Colors.red, width: 3)),
+                          child: Checkbox(
+                              value: state.getFinal(),
+                              onChanged: (v) {
+                                setState(() {
+                                });
+                              }),
+                        ),
+                        Padding(padding: const EdgeInsets.only(bottom: 70),)
                       ],
                     );
                   } else {

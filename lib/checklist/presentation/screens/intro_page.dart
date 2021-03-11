@@ -35,16 +35,16 @@ class _IntroPageState extends State<IntroPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("I am biologically female: "),
+                        Text("Ich bin biologisch weiblich: "),
                         DropdownButton(
                           value: state.childbearing,
                           items: [
                             DropdownMenuItem(
-                              child: Text("True"),
+                              child: Text("JA"),
                               value: true,
                             ),
                             DropdownMenuItem(
-                              child: Text("False"),
+                              child: Text("NEIN"),
                               value: false,
                             ),
                           ],
@@ -74,17 +74,17 @@ class _IntroPageState extends State<IntroPage> {
                           String code = textController.text;
                           if (code == "") {
                             ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text("Started without code")));
+                                SnackBar(content: Text("Starte ohne Code")));
                             state.setCheckList("0");
                             Navigator.of(context).pushNamed("/one");
                           } else {
                             int intCode = int.tryParse(code, radix: 16);
                             if (intCode == null) {
                               ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(content: Text("Invalid code!")));
+                                  .showSnackBar(SnackBar(content: Text("Ungültiger Code!")));
                             } else {
                               ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                  content: Text("Started with code: \"" + code + "\"")));
+                                  content: Text("Starte mit Code: \"" + code + "\"")));
                               state.setCheckList(code);
                               Navigator.of(context).pushNamed("/one");
                             }

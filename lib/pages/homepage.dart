@@ -7,20 +7,18 @@ import 'layouts/textpage_layout.dart';
 class HomePage extends TextPage with NavigationStates {
   final List<Widget> children = [
     TextBlock(
-      title: "Prospect",
+      title: "Prospekt",
       content:
-          "This Application was created by robert.schauer@tum.de as part of my Clinical Application Project for the Departement of Dermatology at the Klinikum rechts der Isar"
-          " in the course of my Bachelor studies.",
+          "Diese App wurde von robet.schauer@tum.de für sein klinisches Anwendungsprojekt für den Lehrstuhl für Dermatologie am Klinikum rechts der Isar erstellt.",
       titleSize: 34,
       contentSize: 24,
     ),
     TextBlock(
       title: "Disclaimer",
       content:
-          "All of the information contained in this Application was taken directly from these links: \n\n"
+          "Die Informationen die in dieser Applikation enthalten sind wurden direkt aus diesen Links entnommen: \n\n"
           "https://www.afmps.be/sites/default/files/downloads/Roaccutane%20patient%20DE%20information.pdf \n\n"
-          "http://www.bfarm.de/SharedDocs/Downloads/DE/Arzneimittel/Pharmakovigilanz/Service/aktuelles/isotret/documbrosch-isotretinoin.pdf?__blob=publicationFile&v=2 \n\n"
-          "I make no guarantees for the correctness of the information contained in this Application",
+          "http://www.bfarm.de/SharedDocs/Downloads/DE/Arzneimittel/Pharmakovigilanz/Service/aktuelles/isotret/documbrosch-isotretinoin.pdf?__blob=publicationFile&v=2 \n\n",
       titleSize: 30,
       contentSize: 24,
     ),

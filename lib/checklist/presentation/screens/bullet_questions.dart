@@ -52,7 +52,7 @@ class _BulletQuestionState extends State<BulletQuestions> {
               decoration: BoxDecoration(border: Border.all(color: Colors.black38, width: 3)),
               child: Column(
                 children: [
-                  Text("I understand"),
+                  Text("Ich verstehe"),
                   Padding(padding: const EdgeInsets.all(3),),
                   Transform.scale(
                       scale: 2.0,
