@@ -20,13 +20,22 @@ class _IntroPageState extends State<IntroPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
+        padding: const EdgeInsets.all(32),
         color: Theme.of(context).backgroundColor,
-        child: Column(children: [
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
           Expanded(
               child: Padding(
             padding: const EdgeInsets.only(top: 0),
           )),
-          Text(""),
+          Text(
+            "Checkliste",
+            style: Theme.of(context).textTheme.headline1,
+          ),
+          Text(
+              "Um sicher zu gehen dass sie die für sie wichtigsten Punkte aufgenommen haben, können sie diese Checkliste durchgehen. \n\n"
+              "Da Roaccutane für die Geschlechter unterschiedliche Risiken birgt ist es wichtig, dass sie ihr biologisches Geschlecht angeben.\n\n"
+              "Wenn sie Checkliste schon einmal durchgegangen sind können sie mit ihrem Code den Zustand wieder herstellen.\n\n",
+              style: Theme.of(context).textTheme.bodyText1),
           BlocConsumer<CheckListCubit, CheckListState>(
             builder: (buildContext, state) {
               return Material(
@@ -36,16 +45,24 @@ class _IntroPageState extends State<IntroPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Ich bin biologisch weiblich: "),
+                        Text(
+                          "Ich bin biologisch weiblich: \t",
+                          style: Theme.of(context).textTheme.bodyText1,
+                        ),
+                        Padding(padding: const EdgeInsets.all(5),),
                         DropdownButton(
                           value: state.childbearing,
                           items: [
                             DropdownMenuItem(
-                              child: Text("JA"),
+                              child: Text(
+                                "JA",
+                                style: Theme.of(context).textTheme.bodyText1,
+                              ),
                               value: true,
                             ),
                             DropdownMenuItem(
-                              child: Text("NEIN"),
+                              child: Text("NEIN",
+                                  style: Theme.of(context).textTheme.bodyText1),
                               value: false,
                             ),
                           ],
@@ -58,11 +75,12 @@ class _IntroPageState extends State<IntroPage> {
                     ),
                     Padding(padding: const EdgeInsets.only(top: 10)),
                     SizedBox(
-                      width: 100,
-                      height: 30,
+                      width: 200,
+                      height: 50,
                       child: TextField(
                         controller: textController,
                         decoration: InputDecoration(
+                          labelStyle: Theme.of(context).textTheme.bodyText1,
                           labelText: "Code",
                           border: OutlineInputBorder(),
                         ),
@@ -70,7 +88,8 @@ class _IntroPageState extends State<IntroPage> {
                     ),
                     Padding(padding: const EdgeInsets.only(top: 10)),
                     ElevatedButton(
-                        child: Text("Start"),
+                        child: Text("Start",
+                            style: Theme.of(context).textTheme.bodyText1),
                         onPressed: () {
                           String code = textController.text;
                           if (code == "") {
@@ -80,12 +99,15 @@ class _IntroPageState extends State<IntroPage> {
                             Navigator.of(context).pushNamed("/one");
                           } else {
                             int intCode = int.tryParse(code, radix: 16);
-                            if (intCode == null) {
-                              ScaffoldMessenger.of(context)
-                                  .showSnackBar(SnackBar(content: Text("Ungültiger Code!")));
+                            if (intCode == null || intCode > 0x1fff) {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Ungültiger Code!")));
                             } else {
-                              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                                  content: Text("Starte mit Code: \"" + code + "\"")));
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                      content: Text("Starte mit Code: \"" +
+                                          code +
+                                          "\"")));
                               state.setCheckList(code);
                               Navigator.of(context).pushNamed("/one");
                             }

@@ -52,7 +52,7 @@ class CheckListState {
         result = checkmarks[i] && result;
       }
     }else{
-      result = checkmarks[0] && checkmarks[2] && checkmarks[3] && checkmarks[4] && checkmarks[5] && checkmarks[12];
+      result = checkmarks[0] && checkmarks[2] && checkmarks[3] && checkmarks[7] && checkmarks[8] && checkmarks[12];
     }
     return result;
   }

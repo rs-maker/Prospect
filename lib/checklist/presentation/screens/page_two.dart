@@ -6,7 +6,7 @@ import 'package:prospect/checklist/presentation/screens/question_page.dart';
 
 class PageTwo extends QuestionPage {
   @override
-  String get titel => "TEST";
+  String get titel => "Während der Behandlung";
 
   @override
   String get forward => null;
@@ -19,21 +19,21 @@ class PageTwo extends QuestionPage {
       CheckListState checkListState, QuestionPageState questionPageState) {
     QuestionBlock questionBlock7 = QuestionBlock(
       question:
-          "Ich verstehe, dass ich einen Monat vor meiner Behandlung bis einschließlich einen Monat nach Ende der Behandlung untunterbrochen wirksam verhüten muss.",
+          "Ich weiß dass ich wegen dess teratogenen Risiko bis einschließlich ein Monat nach Ende der Behandlung mit Roaccutane kein Blut spenden darf.",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 7,
     );
     QuestionBlock questionBlock8 = QuestionBlock(
       question:
-          "Ich verstehe dass ich vor meiner Behandlung mit einem Gynäkologen sprechen muss, damit dieser die Therapie erlaubt.",
+          "Ich darf Roaccutane mit niemandem teilen und muss unverbrauchte Tabletten an die Apotheke zurückgeben",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 8,
     );
     QuestionBlock questionBlock9 = QuestionBlock(
       question:
-          "Ich verstehe dass die oberen Punkte auch zutreffen wenn ich im Moment nicht sexuell aktiv bin oder meine Periode nicht habe.",
+          "Ich verstehe, dass ich während meiner Behandlung monantliche Kontrolluntersuchungen einhalten muss.",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 9,
@@ -66,9 +66,19 @@ class PageTwo extends QuestionPage {
       questionPageState: questionPageState,
       number: 12,
     );
-    if(checkListState.childbearing)
-      return [questionBlock7, questionBlock8,questionBlock9,questionBlock10,questionBlock11,bulletQuestions];
+    if (checkListState.childbearing)
+      return [
+        questionBlock7,
+        questionBlock8,
+        questionBlock9,
+        questionBlock10,
+        questionBlock11,
+        bulletQuestions
+      ];
     else
-      return [bulletQuestions];
+      return [
+        questionBlock7,
+        questionBlock8,
+        bulletQuestions];
   }
 }

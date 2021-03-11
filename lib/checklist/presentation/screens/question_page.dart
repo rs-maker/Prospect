@@ -34,8 +34,7 @@ class QuestionPageState extends State<QuestionPage> {
                             children: [
                               Text(
                                 widget.titel,
-                                style: TextStyle(
-                                    fontSize: 22, fontWeight: FontWeight.w300),
+                                style: Theme.of(context).textTheme.headline1,
                               ),
                               Expanded(
                                   child: Padding(
@@ -43,17 +42,14 @@ class QuestionPageState extends State<QuestionPage> {
                               )),
                               Text(
                                 "Code: ",
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
+                                style: Theme.of(context).textTheme.bodyText1,
                               ),
                               DecoratedBox(
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
                                     child: Text(
                                       state.getCode(),
-                                      style: TextStyle(
-                                          fontSize: 16,
-                                          fontWeight: FontWeight.bold),
+                                      style: Theme.of(context).textTheme.bodyText1,
                                     ),
                                   ),
                                   decoration: BoxDecoration(
@@ -234,17 +230,17 @@ class QuestionPageState extends State<QuestionPage> {
                               });
                             }),
                         Checkbox(
-                            value: state.checkmarks[4],
+                            value: state.checkmarks[7],
                             onChanged: (v) {
                               setState(() {
-                                state.flipCheckMark(4);
+                                state.flipCheckMark(7);
                               });
                             }),
                         Checkbox(
-                            value: state.checkmarks[5],
+                            value: state.checkmarks[8],
                             onChanged: (v) {
                               setState(() {
-                                state.flipCheckMark(5);
+                                state.flipCheckMark(8);
                               });
                             }),
                         Checkbox(

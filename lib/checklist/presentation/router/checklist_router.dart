@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prospect/checklist/logic/checklist_cubit.dart';
-import 'package:prospect/checklist/presentation/screens/intro_page.dart';
+import 'package:prospect/checklist/presentation/screens/page_intro.dart';
 import 'package:prospect/checklist/presentation/screens/page_one.dart';
 import 'package:prospect/checklist/presentation/screens/page_two.dart';
 

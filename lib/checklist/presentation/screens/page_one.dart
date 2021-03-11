@@ -56,22 +56,20 @@ class PageOne extends QuestionPage {
       number: 3,
     );
     QuestionBlock questionBlock4 = QuestionBlock(
-      question:
-          "Ich weiß dass ich wegen dess teratogenen Risiko bis einschließlich ein Monat nach Ende der Behandlung mit Roaccutane kein Blut spenden darf.",
+      question: "Ich verstehe, dass ich einen Monat vor meiner Behandlung bis einschließlich einen Monat nach Ende der Behandlung untunterbrochen wirksam verhüten muss.",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 4,
     );
     QuestionBlock questionBlock5 = QuestionBlock(
-      question:
-          "Ich darf Roaccutane mit niemandem teilen und muss unverbrauchte Tabletten an die Apotheke zurückgeben",
+      question:   "Ich verstehe dass ich vor meiner Behandlung mit einem Gynäkologen sprechen muss, damit dieser die Therapie erlaubt.",
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 5,
     );
     QuestionBlock questionBlock6 = QuestionBlock(
-      question:
-          "Ich verstehe, dass ich während meiner Behandlung monantliche Kontrolluntersuchungen einhalten muss.",
+      question: "Ich verstehe dass die oberen Punkte auch zutreffen wenn ich im Moment nicht sexuell aktiv bin oder meine Periode nicht habe.",
+
       checkListState: checkListState,
       questionPageState: questionPageState,
       number: 6,
@@ -92,8 +90,6 @@ class PageOne extends QuestionPage {
         questionBlock0,
         questionBlock2,
         questionBlock3,
-        questionBlock4,
-        questionBlock5
       ];
     }
   }

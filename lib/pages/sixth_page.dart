@@ -49,7 +49,7 @@ class SixthPage extends StatelessWidget with NavigationStates {
             ),
             NavBar(
               back: NavigationEvent.FifthPageClickEvent,
-              forward: null,
+              forward: NavigationEvent.CheckListClickEvent,
             ),
           ]),
     );
