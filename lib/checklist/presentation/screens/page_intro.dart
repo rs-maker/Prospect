@@ -34,6 +34,7 @@ class _IntroPageState extends State<IntroPage> {
           Text(
               "Um sicher zu gehen dass sie die für sie wichtigsten Punkte aufgenommen haben, können sie diese Checkliste durchgehen. \n\n"
               "Da Roaccutane für die Geschlechter unterschiedliche Risiken birgt ist es wichtig, dass sie ihr biologisches Geschlecht angeben.\n\n"
+              "Wenn sie mit einem Punkt nicht einverstanden sind oder Fragen dazu haben lassen sie ihn einfach aus. Sie können später mit ihrem Arzt offene Fragen klären. \n\n"
               "Wenn sie Checkliste schon einmal durchgegangen sind können sie mit ihrem Code den Zustand wieder herstellen.\n\n",
               style: Theme.of(context).textTheme.bodyText1),
           BlocConsumer<CheckListCubit, CheckListState>(

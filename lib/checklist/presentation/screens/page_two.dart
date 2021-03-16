@@ -6,10 +6,10 @@ import 'package:prospect/checklist/presentation/screens/question_page.dart';
 
 class PageTwo extends QuestionPage {
   @override
-  String get titel => "Während der Behandlung";
+  String get titel => "Nach der Verordnung";
 
   @override
-  String get forward => null;
+  String get forward => "/outro";
 
   @override
   String get back => "/one";

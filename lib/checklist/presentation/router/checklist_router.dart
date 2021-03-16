@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prospect/checklist/logic/checklist_cubit.dart';
 import 'package:prospect/checklist/presentation/screens/page_intro.dart';
 import 'package:prospect/checklist/presentation/screens/page_one.dart';
+import 'package:prospect/checklist/presentation/screens/page_outro.dart';
 import 'package:prospect/checklist/presentation/screens/page_two.dart';
 
 class CheckListRouter {
@@ -31,6 +32,13 @@ class CheckListRouter {
           builder: (_) => BlocProvider.value(
             value: _checkListCubit,
             child: PageTwo(),
+          ),
+        );
+      case '/outro':
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider.value(
+            value: _checkListCubit,
+            child: OutroPage(),
           ),
         );
       default:
