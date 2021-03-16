@@ -19,33 +19,28 @@ class _QuestionBlockState extends State<QuestionBlock> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Theme.of(context).scaffoldBackgroundColor,
-        ),
-        child: Row(
+      padding: const EdgeInsets.all(32),
+        child: Column(
           children: [
-            Expanded(child: Text(widget.question)),
+            Text(widget.question),
+            Padding(padding: const EdgeInsets.only(top: 10),),
             Container(
               padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(border: Border.all(color: Colors.black38, width: 3)),
+              decoration: BoxDecoration(border: Border.all(color: Colors.black38, width: 1)),
               child: Column(
                 children: [
                   Text("Ich verstehe"),
                   Padding(padding: const EdgeInsets.all(3),),
                   Transform.scale(
-                      scale: 2.0,
+                      scale: 1.5,
                       child: Checkbox(
                           value: widget.checkListState.checkmarks[widget.number],
                           onChanged: (value) {
                             setState(() {
-                                widget.checkListState.flipCheckMark(widget.number);
-                                //This line updates the state of the little bar on the right of the page that displays the little checkmarks
-                                widget.questionPageState.setState(() {
-                                });
+                              widget.checkListState.flipCheckMark(widget.number);
+                              //This line updates the state of the little bar on the right of the page that displays the little checkmarks
+                              widget.questionPageState.setState(() {
+                              });
                             });
                           })),
                 ],
@@ -53,7 +48,6 @@ class _QuestionBlockState extends State<QuestionBlock> {
             ),
           ],
         ),
-      ),
     );
   }
 }

@@ -9,13 +9,8 @@ class OutroPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        padding: const EdgeInsets.all(32),
         color: Theme.of(context).backgroundColor,
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Expanded(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 0),
-              )),
           Row(
             children: [
               Expanded(
@@ -54,6 +49,14 @@ class OutroPage extends StatelessWidget {
                                   ),
                                 )),
                           ),
+                          Padding(padding: const EdgeInsets.only(bottom: 100),),
+                          FloatingActionButton(
+                            heroTag: "bck",
+                            onPressed: () {Navigator.of(context)
+                                .pushNamed("/two");
+                            },
+                            child: Icon(Icons.arrow_back_rounded),
+                          ),
                         ],
                       ),
                     );
@@ -67,7 +70,6 @@ class OutroPage extends StatelessWidget {
                   )),
             ],
           ),
-          Expanded(child: Padding(padding: const EdgeInsets.only(top: 0))),
         ]),
       ),
     );

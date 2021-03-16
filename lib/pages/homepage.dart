@@ -30,7 +30,7 @@ class HomePage extends StatelessWidget with NavigationStates {
                   ),
                   TextSpan(
                       text:
-                          "https://www.afmps.be/sites/default/files/downloads/Roaccutane%20patient%20DE%20information.pdf \n\n",
+                          "Patienten Informationen \n\n",
                       style: Theme.of(context).textTheme.bodyText2,
                       recognizer: TapGestureRecognizer()
                         ..onTap = () => {
@@ -39,7 +39,7 @@ class HomePage extends StatelessWidget with NavigationStates {
                             }),
                   TextSpan(
                     text:
-                        "http://www.bfarm.de/SharedDocs/Downloads/DE/Arzneimittel/Pharmakovigilanz/Service/aktuelles/isotret/documbrosch-isotretinoin.pdf?__blob=publicationFile&v=2 \n\n",
+                        "Dokumentationsbroschüre \n\n",
                     style: Theme.of(context).textTheme.bodyText2,
                     recognizer: TapGestureRecognizer()
                       ..onTap = () => {

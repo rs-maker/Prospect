@@ -34,33 +34,29 @@ class QuestionPageState extends State<QuestionPage> {
                             children: [
                               Text(
                                 widget.titel,
-                                style: Theme.of(context).textTheme.headline1,
+                                style: Theme.of(context).textTheme.headline2,
                               ),
-                              Expanded(
-                                  child: Padding(
-                                padding: const EdgeInsets.all(0),
-                              )),
-                              Text(
-                                "Code: ",
-                                style: Theme.of(context).textTheme.bodyText1,
-                              ),
-                              DecoratedBox(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text(
-                                      state.getCode(),
-                                      style: Theme.of(context).textTheme.bodyText1,
-                                    ),
-                                  ),
-                                  decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(12),
-                                    border: Border.all(
-                                      width: 5,
-                                      color: Colors.black38,
-                                    ),
-                                  )),
                             ],
-                          )
+                          ),
+                      Text(
+                        "Code: ",
+                        style: Theme.of(context).textTheme.bodyText1,
+                      ),
+                      DecoratedBox(
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              state.getCode(),
+                              style: Theme.of(context).textTheme.bodyText1,
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(12),
+                            border: Border.all(
+                              width: 5,
+                              color: Colors.black38,
+                            ),
+                          )),
                         ] +
                         widget.buildQuestions(state, this) +
                         [

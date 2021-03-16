@@ -27,53 +27,62 @@ class _BulletQuestionState extends State<BulletQuestions> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        padding: const EdgeInsets.all(20),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          color: Theme.of(context).scaffoldBackgroundColor,
-        ),
-        child: Row(
-          children: [
-            Expanded(
-              child: Container(
-                alignment: Alignment.centerLeft,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Align(alignment: Alignment.centerLeft,child: Text(widget.title, style: TextStyle(fontWeight: FontWeight.bold),)),
-                  ] + buildBullets(),
-                ),
-              ),
-            ),
-            Container(
-              padding: const EdgeInsets.all(10),
-              decoration: BoxDecoration(border: Border.all(color: Colors.black38, width: 3)),
+      padding: const EdgeInsets.all(32),
+      child: Row(
+        children: [
+          Expanded(
+            child: Container(
+              alignment: Alignment.centerLeft,
               child: Column(
-                children: [
-                  Text("Ich verstehe"),
-                  Padding(padding: const EdgeInsets.all(3),),
-                  Transform.scale(
-                      scale: 2.0,
-                      child: Checkbox(
-                          value: widget.checkListState.checkmarks[widget.number],
-                          onChanged: (value) {
-                            setState(() {
-                              widget.checkListState.flipCheckMark(widget.number);
-                              //This line updates the state of the little bar on the right of the page that displays the little checkmarks
-                              widget.questionPageState.setState(() {});
-                            });
-                          })),
-                ],
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                      Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            widget.title,
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )),
+                    ] +
+                    buildBullets() +
+                    [
+                      Container(
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            border:
+                                Border.all(color: Colors.black38, width: 3)),
+                        child: Column(
+                          children: [
+                            Text("Ich verstehe"),
+                            Padding(
+                              padding: const EdgeInsets.all(3),
+                            ),
+                            Transform.scale(
+                                scale: 2.0,
+                                child: Checkbox(
+                                    value: widget.checkListState
+                                        .checkmarks[widget.number],
+                                    onChanged: (value) {
+                                      setState(() {
+                                        widget.checkListState
+                                            .flipCheckMark(widget.number);
+                                        //This line updates the state of the little bar on the right of the page that displays the little checkmarks
+                                        widget.questionPageState
+                                            .setState(() {});
+                                      });
+                                    })),
+                          ],
+                        ),
+                      ),
+                    ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
-  List<Widget> buildBullets(){
+
+  List<Widget> buildBullets() {
     List<Widget> ret = [];
     widget.questions.forEach((element) {
       ret.add(ListTile(

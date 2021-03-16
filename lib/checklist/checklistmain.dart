@@ -34,22 +34,22 @@ class _MyChecklistState extends State<MyChecklist> {
         //Text theme
         textTheme: TextTheme(
             headline1: TextStyle(
-              fontSize: 70,
+              fontSize: 60,
               fontFamily: 'BebasNeue',
               height: 1,
             ),
             headline2: TextStyle(
-              fontSize: 30,
+              fontSize: 28,
               fontFamily: 'RobotoMedium',
               height: 1,
             ),
             headline3: TextStyle(
-              fontSize: 25,
+              fontSize: 24,
               fontFamily: 'RobotoMedium',
               height: 1,
             ),
             bodyText1: TextStyle(
-                fontSize: 30,
+                fontSize: 24,
                 fontFamily: "RobotoMedium",
                 letterSpacing: -1,
                 height: 1),

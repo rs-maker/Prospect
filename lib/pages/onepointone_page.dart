@@ -45,8 +45,9 @@ class IntroPage1 extends StatelessWidget with NavigationStates {
                   ),
                 ),
                 Image.asset(
-                  'images/akne_vertical.png',
-                  width: 300,
+                  'assets/images/akne_vertical.png',
+                  width: 155,
+                  height: 1000,
                   fit: BoxFit.cover,
                 ),
               ],

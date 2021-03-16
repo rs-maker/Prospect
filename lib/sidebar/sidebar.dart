@@ -76,7 +76,7 @@ class _SideBarState extends State<SideBar> with SingleTickerProviderStateMixin {
                   /*                  THIS IS WHERE THE SIDEBAR ITEMS GO                                  */
                   Padding(padding: const EdgeInsets.only(top: 60)),
                   Image.asset(
-                    'images/tum.png',
+                    'assets/images/tum.png',
                     width: 200,
                     height: 100,
                     fit: BoxFit.cover,

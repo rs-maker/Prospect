@@ -39,7 +39,7 @@ class DropDownItem extends StatelessWidget {
               style: Theme.of(context).textTheme.headline3,
             ),
             Spacer(),
-            RaisedButton(
+            ElevatedButton(
               onPressed: () {
                 parent.onButtonPressed();
                 print(navigationEvent.toString());

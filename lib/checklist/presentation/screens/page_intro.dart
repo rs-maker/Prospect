@@ -19,14 +19,9 @@ class _IntroPageState extends State<IntroPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
+      body: ListView(
         padding: const EdgeInsets.all(32),
-        color: Theme.of(context).backgroundColor,
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Expanded(
-              child: Padding(
-            padding: const EdgeInsets.only(top: 0),
-          )),
+        children: [
           Text(
             "Checkliste",
             style: Theme.of(context).textTheme.headline1,
@@ -48,22 +43,21 @@ class _IntroPageState extends State<IntroPage> {
                       children: [
                         Text(
                           "Ich bin biologisch weiblich: \t",
-                          style: Theme.of(context).textTheme.bodyText1,
+                          style: TextStyle(fontFamily: "RobotoMedium", fontSize: 18),
                         ),
-                        Padding(padding: const EdgeInsets.all(5),),
                         DropdownButton(
                           value: state.childbearing,
                           items: [
                             DropdownMenuItem(
                               child: Text(
                                 "JA",
-                                style: Theme.of(context).textTheme.bodyText1,
+                                style: TextStyle(fontFamily: "RobotoMedium", fontSize: 18),
                               ),
                               value: true,
                             ),
                             DropdownMenuItem(
                               child: Text("NEIN",
-                                  style: Theme.of(context).textTheme.bodyText1),
+                                  style: TextStyle(fontFamily: "RobotoMedium", fontSize: 18)),
                               value: false,
                             ),
                           ],
@@ -120,9 +114,7 @@ class _IntroPageState extends State<IntroPage> {
             },
             listener: (b, s) {},
           ),
-          Expanded(child: Padding(padding: const EdgeInsets.only(top: 0))),
         ]),
-      ),
     );
   }
 }
