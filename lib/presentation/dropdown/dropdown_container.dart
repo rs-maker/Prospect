@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/dropdown/dropdown_item.dart';
+import 'package:prospect/presentation/dropdown/dropdown_item.dart';
 import 'custom_dropdown.dart';
 
 class DropDownContainer extends StatelessWidget {

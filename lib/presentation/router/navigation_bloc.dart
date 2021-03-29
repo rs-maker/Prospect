@@ -1,14 +1,14 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:prospect/checklist/checklistmain.dart';
-import 'package:prospect/pages/onepointone_page.dart';
-import 'package:prospect/pages/fifth_page.dart';
-import 'package:prospect/pages/first_page.dart';
-import 'package:prospect/pages/fourth_page.dart';
-import 'package:prospect/pages/homepage.dart';
-import 'package:prospect/pages/second_page.dart';
-import 'package:prospect/pages/sixth_page.dart';
-import 'package:prospect/pages/third_page.dart';
-import 'package:prospect/pages/twopointwo_page.dart';
+import 'package:prospect/presentation/screens/onepointone_page.dart';
+import 'package:prospect/presentation/screens/fifth_page.dart';
+import 'package:prospect/presentation/screens/first_page.dart';
+import 'package:prospect/presentation/screens/fourth_page.dart';
+import 'package:prospect/presentation/screens/homepage.dart';
+import 'package:prospect/presentation/screens/second_page.dart';
+import 'package:prospect/presentation/screens/sixth_page.dart';
+import 'package:prospect/presentation/screens/third_page.dart';
+import 'package:prospect/presentation/screens/twopointwo_page.dart';
 
 enum NavigationEvent {
   HomePageClickEvent,

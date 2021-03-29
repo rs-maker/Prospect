@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/bloc/navigation/navigation_bloc.dart';
+import 'package:prospect/presentation/router/navigation_bloc.dart';
 
 class NavBar extends StatelessWidget {
   final NavigationEvent back;

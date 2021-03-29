@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/bloc/navigation/navigation_bloc.dart';
-import 'package:prospect/dropdown/custom_dropdown.dart';
+import 'package:prospect/presentation/router/navigation_bloc.dart';
+import 'package:prospect/presentation/dropdown/custom_dropdown.dart';
 
 class DropDownItem extends StatelessWidget {
   final NavigationEvent navigationEvent;

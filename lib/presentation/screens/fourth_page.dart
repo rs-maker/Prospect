@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/bloc/navigation/navigation_bloc.dart';
+import 'package:prospect/presentation/router/navigation_bloc.dart';
 import 'layouts/navbar_layout.dart';
 
 class FourthPage extends StatelessWidget with NavigationStates {

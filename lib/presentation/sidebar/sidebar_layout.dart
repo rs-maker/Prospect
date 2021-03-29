@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/bloc/navigation/navigation_bloc.dart';
-import 'package:prospect/sidebar/sidebar.dart';
+import 'package:prospect/presentation/router/navigation_bloc.dart';
+import 'package:prospect/presentation/sidebar/sidebar.dart';
 
 class SideBarLayout extends StatelessWidget {
   @override

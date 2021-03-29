@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:prospect/bloc/navigation/navigation_bloc.dart';
-import 'package:prospect/pages/layouts/bulletlist_layout.dart';
+import 'package:prospect/presentation/router/navigation_bloc.dart';
+import 'package:prospect/presentation/screens/layouts/bulletlist_layout.dart';
 import 'layouts/navbar_layout.dart';
 import 'package:flutter/material.dart';
 

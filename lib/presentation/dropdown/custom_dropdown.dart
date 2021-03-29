@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/dropdown/dropdown_container.dart';
+import 'package:prospect/presentation/dropdown/dropdown_container.dart';
 import 'dropdown_item.dart';
 class CustomDropDown extends StatefulWidget {
   final String string;

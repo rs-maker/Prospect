@@ -2,10 +2,10 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:prospect/bloc/navigation/navigation_bloc.dart';
-import 'package:prospect/dropdown/custom_dropdown.dart';
-import 'package:prospect/dropdown/dropdown_item.dart';
-import 'package:prospect/sidebar/sidebar_item.dart';
+import 'package:prospect/presentation/router/navigation_bloc.dart';
+import 'package:prospect/presentation/dropdown/custom_dropdown.dart';
+import 'package:prospect/presentation/dropdown/dropdown_item.dart';
+import 'package:prospect/presentation/sidebar/sidebar_item.dart';
 import 'package:rxdart/rxdart.dart';
 
 class SideBar extends StatefulWidget {

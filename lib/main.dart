@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:prospect/sidebar/sidebar_layout.dart';
+import 'package:prospect/presentation/sidebar/sidebar_layout.dart';
 
 void main() {
   runApp(MyApp());
