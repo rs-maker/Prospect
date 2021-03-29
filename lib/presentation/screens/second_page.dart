@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:prospect/presentation/router/navigation_bloc.dart';
-import 'layouts/navbar_layout.dart';
+import 'widgets/navbar_layout.dart';
 import 'package:flutter/material.dart';
 
 class SecondPage extends StatelessWidget with NavigationStates {

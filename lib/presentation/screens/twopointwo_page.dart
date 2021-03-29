@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:prospect/presentation/router/navigation_bloc.dart';
-import 'package:prospect/presentation/screens/layouts/bulletlist_layout.dart';
-import 'layouts/navbar_layout.dart';
+import 'package:prospect/presentation/screens/widgets/bulletlist_layout.dart';
+import 'widgets/navbar_layout.dart';
 import 'package:flutter/material.dart';
 
 class TwoPoinTwoPage extends StatelessWidget with NavigationStates {

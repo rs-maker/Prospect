@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:prospect/presentation/router/navigation_bloc.dart';
-import 'layouts/navbar_layout.dart';
+import 'widgets/navbar_layout.dart';
 
 class IntroPage extends StatelessWidget with NavigationStates {
   @override
